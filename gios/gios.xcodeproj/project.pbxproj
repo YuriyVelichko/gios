@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		DE14FF371D50B49A0012E0DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE14FF361D50B49A0012E0DD /* AppDelegate.swift */; };
-		DE14FF391D50B49A0012E0DD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE14FF381D50B49A0012E0DD /* FirstViewController.swift */; };
-		DE14FF3B1D50B49A0012E0DD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE14FF3A1D50B49A0012E0DD /* SecondViewController.swift */; };
 		DE14FF3E1D50B49A0012E0DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF3C1D50B49A0012E0DD /* Main.storyboard */; };
 		DE14FF401D50B49A0012E0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */; };
 		DE14FF431D50B49A0012E0DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */; };
+		DEF45B1B1D50CACF005AF78F /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */; };
+		DEF45B1D1D50CAE7005AF78F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DE14FF331D50B49A0012E0DD /* gios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE14FF361D50B49A0012E0DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE14FF381D50B49A0012E0DD /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		DE14FF3A1D50B49A0012E0DD /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		DE14FF3D1D50B49A0012E0DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE14FF421D50B49A0012E0DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE14FF441D50B49A0012E0DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				DE14FF361D50B49A0012E0DD /* AppDelegate.swift */,
-				DE14FF381D50B49A0012E0DD /* FirstViewController.swift */,
-				DE14FF3A1D50B49A0012E0DD /* SecondViewController.swift */,
 				DE14FF3C1D50B49A0012E0DD /* Main.storyboard */,
 				DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */,
 				DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */,
 				DE14FF441D50B49A0012E0DD /* Info.plist */,
+				DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */,
+				DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */,
 			);
 			path = gios;
 			sourceTree = "<group>";
@@ -138,9 +138,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE14FF3B1D50B49A0012E0DD /* SecondViewController.swift in Sources */,
+				DEF45B1B1D50CACF005AF78F /* RepositoriesViewController.swift in Sources */,
+				DEF45B1D1D50CAE7005AF78F /* FavoritesViewController.swift in Sources */,
 				DE14FF371D50B49A0012E0DD /* AppDelegate.swift in Sources */,
-				DE14FF391D50B49A0012E0DD /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +290,7 @@
 				DE14FF491D50B49A0012E0DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

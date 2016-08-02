@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Favorites-->
         <scene sceneID="HbM-It-dhx">
             <objects>
-                <tableViewController id="tPR-u7-dhj" sceneMemberID="viewController">
+                <tableViewController id="tPR-u7-dhj" customClass="FavoritesViewController" customModule="gios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gZF-c7-td8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
                             <outlet property="delegate" destination="tPR-u7-dhj" id="mHm-B0-iMg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="A11-60-QOp"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="A11-60-QOp"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIa-1z-W3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="738" y="455"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Repositories-->
         <scene sceneID="lbq-AY-E7c">
             <objects>
-                <tableViewController id="3mY-wD-vyO" sceneMemberID="viewController">
+                <tableViewController id="3mY-wD-vyO" customClass="RepositoriesViewController" customModule="gios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QG3-z9-E6w">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +101,7 @@
                             <outlet property="delegate" destination="3mY-wD-vyO" id="Yk8-re-F0w"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Ir7-4L-g2P"/>
+                    <navigationItem key="navigationItem" title="Repositories" id="Ir7-4L-g2P"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYd-9s-Fj3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
