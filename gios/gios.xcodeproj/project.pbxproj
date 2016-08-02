@@ -14,6 +14,7 @@
 		DEF45B1B1D50CACF005AF78F /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */; };
 		DEF45B1D1D50CAE7005AF78F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */; };
 		DEF45B1F1D50CFD6005AF78F /* SartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */; };
+		DEF45B211D50D229005AF78F /* RepositoryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B201D50D229005AF78F /* RepositoryDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SartViewController.swift; sourceTree = "<group>"; };
+		DEF45B201D50D229005AF78F /* RepositoryDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */,
 				DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */,
 				DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */,
+				DEF45B201D50D229005AF78F /* RepositoryDescription.swift */,
 			);
 			path = gios;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				DEF45B1F1D50CFD6005AF78F /* SartViewController.swift in Sources */,
 				DEF45B1B1D50CACF005AF78F /* RepositoriesViewController.swift in Sources */,
 				DEF45B1D1D50CAE7005AF78F /* FavoritesViewController.swift in Sources */,
+				DEF45B211D50D229005AF78F /* RepositoryDescription.swift in Sources */,
 				DE14FF371D50B49A0012E0DD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
