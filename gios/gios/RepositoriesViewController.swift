@@ -64,18 +64,27 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
                 self.loadData( self.text )
             }
         }
-    }
-    
+    }  
 
-    /*
+   
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+    
+        let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
+        if let repositoryView = segue.destinationViewController as? RepositoryViewController {
+
+            let info = repositories[indexPath.row]
+        
+            repositoryView.repo     = info.repo
+            repositoryView.owner    = info.owner
+            repositoryView.url      = info.url
+        }
     }
-    */
+    
     
     // MARK: - Internal methods
     
@@ -145,21 +154,26 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
                         descr.forks = String( format:"%d", forks )
                     }
         
+                    if let json_owner = repo["owner"] {
+        
+                        if let owner = json_owner["login"] as? String {
+                            descr.owner = owner
+                        }
+
+                        if let repo = repo["name"] as? String {
+                            descr.repo = repo
+                        }
+
+                        if let url = repo["html_url"] as? String {
+                            descr.url = url
+                        }
+                    }
+
+        
+        
                     repositories.append( descr )
                 }
             }
-            
-                
-                
-            /*
-                
-            userRealNameLabel.text = (tweetDict["name"] as! String)
-            userScreenNameLabel.text = (tweetDict["screen_name"] as! String)
-            userLocationLabel.text = (tweetDict["location"] as! String)
-            userDescriptionLabel.text = (tweetDict["description"] as! String)
-
-*/
-            
         }
         catch let error as NSError {
             NSLog ("JSON error: \(error)")

@@ -12,6 +12,7 @@
 		DE14FF401D50B49A0012E0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */; };
 		DE14FF431D50B49A0012E0DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */; };
 		DE5132641D51EF7F000B6D15 /* RepositoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5132631D51EF7F000B6D15 /* RepositoryCellView.swift */; };
+		DE5132681D520D09000B6D15 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5132671D520D09000B6D15 /* RepositoryViewController.swift */; };
 		DEF45B1B1D50CACF005AF78F /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */; };
 		DEF45B1D1D50CAE7005AF78F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */; };
 		DEF45B1F1D50CFD6005AF78F /* SartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */; };
@@ -26,6 +27,7 @@
 		DE14FF421D50B49A0012E0DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE14FF441D50B49A0012E0DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE5132631D51EF7F000B6D15 /* RepositoryCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryCellView.swift; sourceTree = "<group>"; };
+		DE5132671D520D09000B6D15 /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SartViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */,
 				DEF45B201D50D229005AF78F /* RepositoryDescription.swift */,
 				DE5132631D51EF7F000B6D15 /* RepositoryCellView.swift */,
+				DE5132671D520D09000B6D15 /* RepositoryViewController.swift */,
 			);
 			path = gios;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				DE5132641D51EF7F000B6D15 /* RepositoryCellView.swift in Sources */,
 				DEF45B1F1D50CFD6005AF78F /* SartViewController.swift in Sources */,
 				DEF45B1B1D50CACF005AF78F /* RepositoriesViewController.swift in Sources */,
+				DE5132681D520D09000B6D15 /* RepositoryViewController.swift in Sources */,
 				DEF45B1D1D50CAE7005AF78F /* FavoritesViewController.swift in Sources */,
 				DEF45B211D50D229005AF78F /* RepositoryDescription.swift in Sources */,
 				DE14FF371D50B49A0012E0DD /* AppDelegate.swift in Sources */,

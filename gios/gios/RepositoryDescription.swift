@@ -17,4 +17,10 @@ struct RepositoryDescription
     var language    : String! = ""
     var rating      : String! = ""
     var forks       : String! = ""
+    
+    var owner       : String! = ""
+    var repo        : String! = ""
+    var url         : String! = ""
+    
+    
 }
