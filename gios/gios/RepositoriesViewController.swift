@@ -11,12 +11,20 @@ import UIKit
 class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
 
     var repositories : [RepositoryDescription] = []
+    
+    var indicator = UIActivityIndicatorView()
+    
+    var text : String = ""
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadDataChunk()
+        indicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 40, 40))
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        indicator.center = self.view.center
+        tableView.addSubview(indicator)
     }
 
     // MARK: - UITableViewDataSource
@@ -34,7 +42,19 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - UISearchBarDelegate
     
     func searchBar( searchBar: UISearchBar, textDidChange searchText: String) {
-        NSLog( searchText )
+        
+        indicator.startAnimating()
+        indicator.backgroundColor = UIColor.whiteColor()
+        
+        text = searchText
+        
+        dispatch_after(
+            dispatch_time(DISPATCH_TIME_NOW, 300 * Int64( NSEC_PER_MSEC )),
+            dispatch_get_main_queue()) {
+            if self.text == searchText {
+                self.loadDataChunk()
+            }
+        }
     }
     
 
@@ -52,5 +72,9 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     
     func loadDataChunk()
     {
+        NSLog( text )
+
+        indicator.stopAnimating()
+        indicator.hidesWhenStopped = true
     }
 }
