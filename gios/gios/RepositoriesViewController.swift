@@ -137,8 +137,8 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
                         descr.language = language
                     }
                     
-                    if let rating = repo["score"] as? Double {
-                        descr.rating = String( format:"%f", rating )
+                    if let rating = repo["score"] as? Int {
+                        descr.rating = String( format:"%d", rating )
                     }
                     
                     if let forks = repo["forks_count"] as? Int {
