@@ -48,6 +48,17 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let lastElement = repositories.count - 1
+        if indexPath.row == lastElement {
+            // handle your logic here to get more items, add it to dataSource and reload tableview
+            
+            dispatch_async( dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) ) {
+                self.loadData( self.text )
+            }
+        }
+    }
+    
     // MARK: - UISearchBarDelegate
     
     func searchBar( searchBar: UISearchBar, textDidChange searchText: String) {
@@ -90,8 +101,11 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     func loadData( filter : String ){
                 
         // The mutex is required here because this code can be invoked simultaneously. Need to prevent internal data from data race.
-                
-        let requestURL = NSURL( string: "https://api.github.com/search/repositories?q=\(filter)&sort=stars&order=desc" )
+        
+        // Page count is 1-based
+        let page = ( repositories.count / 100 ) + 1
+        let requestURL = NSURL( string: "https://api.github.com/search/repositories?q=\(filter)&sort=stars&order=desc&page=\(page)&per_page=100" )
+        
         let task = NSURLSession.sharedSession().dataTaskWithURL(requestURL!) { (data, response, error) in
     
                     
