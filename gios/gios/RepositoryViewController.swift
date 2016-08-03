@@ -25,13 +25,19 @@ class RepositoryViewController: UIViewController {
         
         loadingIndicator.startAnimating()
         
-        let addButton = UIBarButtonItem( barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "insertNewObject")
+        let addButton = UIBarButtonItem( barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showInBrowser")
         navigationItem.rightBarButtonItem = addButton
         
         loadReadme()
     }
 
     @IBAction func onAddToFavorites(sender: UIButton) {
+        
+    }
+    
+    func showInBrowser() {
+        let urlToShow = NSURL( string: url )!
+        UIApplication.sharedApplication().openURL( urlToShow )
     }
     
     func loadReadme(){
