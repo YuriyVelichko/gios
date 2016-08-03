@@ -64,8 +64,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
                 self.loadData( self.text )
             }
         }
-    }  
-
+    }
    
     // MARK: - Navigation
 
