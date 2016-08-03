@@ -52,7 +52,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
             dispatch_time(DISPATCH_TIME_NOW, 300 * Int64( NSEC_PER_MSEC )),
             dispatch_get_main_queue()) {
             if self.text == searchText {
-                self.loadDataChunk()
+                self.onLoadingData()
             }
         }
     }
@@ -70,11 +70,23 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: - Internal methods
     
-    func loadDataChunk()
-    {
+    func onLoadingData() {
         NSLog( text )
-
-        indicator.stopAnimating()
-        indicator.hidesWhenStopped = true
+        
+        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        
+        dispatch_async(queue) {
+        
+            self.loadData( self.text )
+        
+            dispatch_async(dispatch_get_main_queue()) {
+                self.indicator.stopAnimating()
+                self.indicator.hidesWhenStopped = true
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func loadData( filter : String ){
     }
 }
