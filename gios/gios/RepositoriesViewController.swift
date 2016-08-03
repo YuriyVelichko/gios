@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RepositoriesViewController: UITableViewController {
+class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
 
-    var repositories : [RepositoryDescription]!
+    var repositories : [RepositoryDescription] = []
 
     
     override func viewDidLoad() {
@@ -29,6 +29,12 @@ class RepositoriesViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier( "RepositoryCell", forIndexPath: indexPath )
         
         return cell
+    }
+    
+    // MARK: - UISearchBarDelegate
+    
+    func searchBar( searchBar: UISearchBar, textDidChange searchText: String) {
+        NSLog( searchText )
     }
     
 
