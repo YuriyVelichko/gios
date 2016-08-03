@@ -10,5 +10,5 @@ import Foundation
 
 struct RepositoryDescription
 {
-    
+    var name : String? = ""
 }

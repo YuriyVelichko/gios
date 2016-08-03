@@ -10,7 +10,8 @@ import UIKit
 
 class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
 
-    var repositories : [RepositoryDescription] = []
+    var lastFilter      : String = ""
+    var repositories    : [RepositoryDescription] = []
     
     var indicator = UIActivityIndicatorView()
     
@@ -34,7 +35,9 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier( "RepositoryCell", forIndexPath: indexPath )
+        let cell = tableView.dequeueReusableCellWithIdentifier( "RepositoryCell", forIndexPath: indexPath ) as! RepositoryCellView
+        
+        cell.name.text = repositories[ indexPath.row ].name
         
         return cell
     }
@@ -52,7 +55,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
             dispatch_time(DISPATCH_TIME_NOW, 300 * Int64( NSEC_PER_MSEC )),
             dispatch_get_main_queue()) {
             if self.text == searchText {
-                self.onLoadingData()
+                self.loadData( self.text )
             }
         }
     }
@@ -70,23 +73,70 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: - Internal methods
     
-    func onLoadingData() {
-        NSLog( text )
+    func loadData( filter : String ){
+                
+        // The mutex is required here because this code can be invoked simultaneously. Need to prevent internal data from data race.
+                
+        let requestURL = NSURL( string: "https://api.github.com/search/repositories?q=\(filter)&sort=stars&order=desc" )
+        let task = NSURLSession.sharedSession().dataTaskWithURL(requestURL!) { (data, response, error) in
+    
+                    
+                if self.lastFilter != filter {
+                    self.repositories.removeAll()
+                }
+                    
+                self.onDataRecieved(data)
+                    
+                self.lastFilter = filter;
         
-        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         
-        dispatch_async(queue) {
-        
-            self.loadData( self.text )
-        
-            dispatch_async(dispatch_get_main_queue()) {
-                self.indicator.stopAnimating()
-                self.indicator.hidesWhenStopped = true
-                self.tableView.reloadData()
+                dispatch_async(dispatch_get_main_queue()) {
+                        self.indicator.stopAnimating()
+                        self.indicator.hidesWhenStopped = true
+                        self.tableView.reloadData()
+                }
             }
-        }
+        
+        task.resume()
     }
     
-    func loadData( filter : String ){
+    func onDataRecieved( data: NSData! ) {
+                        
+        guard let data = data else {
+            NSLog ("handleTwitterData() received no data")
+            return
+        }
+                        
+        do {
+                
+            let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions([]))
+            if let items = json["items"] as? [[String: AnyObject]] {
+                for repo in items {
+        
+                    var descr = RepositoryDescription()
+
+                    if let name = repo["full_name"] as? String {
+                        descr.name = name
+                    }
+        
+                    repositories.append( descr )
+                }
+            }
+            
+                
+                
+            /*
+                
+            userRealNameLabel.text = (tweetDict["name"] as! String)
+            userScreenNameLabel.text = (tweetDict["screen_name"] as! String)
+            userLocationLabel.text = (tweetDict["location"] as! String)
+            userDescriptionLabel.text = (tweetDict["description"] as! String)
+
+*/
+            
+        }
+        catch let error as NSError {
+            NSLog ("JSON error: \(error)")
+        }
     }
 }
