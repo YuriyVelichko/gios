@@ -11,9 +11,9 @@ import Foundation
 
 class RepositoryViewController: UIViewController {
     
-    @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var webView: UIWebView!
     
     
     var owner   : String! = ""
@@ -57,8 +57,16 @@ class RepositoryViewController: UIViewController {
                         let dataTask = NSURLSession.sharedSession().dataTaskWithURL(dataURL!) { (data, response, error) in
                                     
                         let dataString = String(data: data!, encoding: NSUTF8StringEncoding)
-
-                        NSLog( dataString! )
+                            
+                        let md = MarkdownBridge()
+                        
+                        let html = md.convertToHTML( dataString )
+                            
+                        dispatch_async( dispatch_get_main_queue() ) {
+                            
+                            self.webView.loadHTMLString( html, baseURL: nil)                            
+                            self.webView.hidden = false
+                        }
                     }
                     
                     dataTask.resume()
