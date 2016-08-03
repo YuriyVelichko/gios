@@ -37,7 +37,13 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier( "RepositoryCell", forIndexPath: indexPath ) as! RepositoryCellView
         
-        cell.name.text = repositories[ indexPath.row ].name
+        cell.name.text      = repositories[ indexPath.row ].name
+        cell.descr.text     = repositories[ indexPath.row ].descr
+        cell.date.text      = repositories[ indexPath.row ].date
+        
+        cell.language.text  = repositories[ indexPath.row ].language
+        cell.rating.text    = repositories[ indexPath.row ].rating
+        cell.forks.text     = repositories[ indexPath.row ].forks
         
         return cell
     }
@@ -117,6 +123,26 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
 
                     if let name = repo["full_name"] as? String {
                         descr.name = name
+                    }
+        
+                    if let repo_decr = repo["description"] as? String {
+                        descr.descr = repo_decr
+                    }
+                    
+                    if let date = repo["updated_at"] as? String {
+                        descr.date = date
+                    }
+                    
+                    if let language = repo["language"] as? String {
+                        descr.language = language
+                    }
+                    
+                    if let rating = repo["score"] as? Double {
+                        descr.rating = String( format:"%f", rating )
+                    }
+                    
+                    if let forks = repo["forks_count"] as? Int {
+                        descr.forks = String( format:"%d", forks )
                     }
         
                     repositories.append( descr )

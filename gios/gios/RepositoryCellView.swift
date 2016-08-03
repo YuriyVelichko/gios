@@ -12,5 +12,10 @@ class RepositoryCellView: UITableViewCell {
     
     
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var descr: UILabel!
+    @IBOutlet weak var date: UILabel!
 
+    @IBOutlet weak var language: UILabel!
+    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var forks: UILabel!
 }

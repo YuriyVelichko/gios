@@ -10,5 +10,11 @@ import Foundation
 
 struct RepositoryDescription
 {
-    var name : String? = ""
+    var name        : String! = ""
+    var descr       : String! = ""
+    var date        : String! = ""
+    
+    var language    : String! = ""
+    var rating      : String! = ""
+    var forks       : String! = ""
 }
