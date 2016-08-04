@@ -45,7 +45,7 @@ class RepositoryViewController: UIViewController {
     
     // MARK: - This class API
     
-    private func showInBrowser() {
+    func showInBrowser() {
         let urlToShow = NSURL( string: repository.url )!
         UIApplication.sharedApplication().openURL( urlToShow )
     }
