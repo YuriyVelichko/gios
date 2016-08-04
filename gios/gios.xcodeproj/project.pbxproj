@@ -8,22 +8,63 @@
 
 /* Begin PBXBuildFile section */
 		DE14FF371D50B49A0012E0DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE14FF361D50B49A0012E0DD /* AppDelegate.swift */; };
-		DE14FF391D50B49A0012E0DD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE14FF381D50B49A0012E0DD /* FirstViewController.swift */; };
-		DE14FF3B1D50B49A0012E0DD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE14FF3A1D50B49A0012E0DD /* SecondViewController.swift */; };
 		DE14FF3E1D50B49A0012E0DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF3C1D50B49A0012E0DD /* Main.storyboard */; };
 		DE14FF401D50B49A0012E0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */; };
 		DE14FF431D50B49A0012E0DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */; };
+		DE34F89C1D531155007F5546 /* FavoritesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE34F89B1D531155007F5546 /* FavoritesList.swift */; };
+		DE34F89E1D532110007F5546 /* FavoritesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE34F89D1D532110007F5546 /* FavoritesCellView.swift */; };
+		DE5132641D51EF7F000B6D15 /* RepositoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5132631D51EF7F000B6D15 /* RepositoryCellView.swift */; };
+		DE5132681D520D09000B6D15 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5132671D520D09000B6D15 /* RepositoryViewController.swift */; };
+		DE5132811D522D52000B6D15 /* MMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5132711D522D52000B6D15 /* MMDocument.m */; };
+		DE5132821D522D52000B6D15 /* MMElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5132731D522D52000B6D15 /* MMElement.m */; };
+		DE5132831D522D52000B6D15 /* MMGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5132751D522D52000B6D15 /* MMGenerator.m */; };
+		DE5132841D522D52000B6D15 /* MMHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5132771D522D52000B6D15 /* MMHTMLParser.m */; };
+		DE5132851D522D52000B6D15 /* MMMarkdown.m in Sources */ = {isa = PBXBuildFile; fileRef = DE51327A1D522D52000B6D15 /* MMMarkdown.m */; };
+		DE5132861D522D52000B6D15 /* MMParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DE51327C1D522D52000B6D15 /* MMParser.m */; };
+		DE5132871D522D52000B6D15 /* MMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = DE51327E1D522D52000B6D15 /* MMScanner.m */; };
+		DE5132881D522D52000B6D15 /* MMSpanParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5132801D522D52000B6D15 /* MMSpanParser.m */; };
+		DE51328A1D5230F2000B6D15 /* gios-Bridging-Header.mm in Sources */ = {isa = PBXBuildFile; fileRef = DE5132891D5230F2000B6D15 /* gios-Bridging-Header.mm */; };
+		DEF45B1B1D50CACF005AF78F /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */; };
+		DEF45B1D1D50CAE7005AF78F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */; };
+		DEF45B1F1D50CFD6005AF78F /* SartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */; };
+		DEF45B211D50D229005AF78F /* RepositoryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B201D50D229005AF78F /* RepositoryDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DE14FF331D50B49A0012E0DD /* gios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE14FF361D50B49A0012E0DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE14FF381D50B49A0012E0DD /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		DE14FF3A1D50B49A0012E0DD /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		DE14FF3D1D50B49A0012E0DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE14FF421D50B49A0012E0DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE14FF441D50B49A0012E0DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE34F89B1D531155007F5546 /* FavoritesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesList.swift; sourceTree = "<group>"; };
+		DE34F89D1D532110007F5546 /* FavoritesCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesCellView.swift; sourceTree = "<group>"; };
+		DE5132631D51EF7F000B6D15 /* RepositoryCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryCellView.swift; sourceTree = "<group>"; };
+		DE5132671D520D09000B6D15 /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
+		DE51326E1D522D52000B6D15 /* gios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gios-Bridging-Header.h"; sourceTree = "<group>"; };
+		DE51326F1D522D52000B6D15 /* MMDocument_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDocument_Private.h; sourceTree = "<group>"; };
+		DE5132701D522D52000B6D15 /* MMDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDocument.h; sourceTree = "<group>"; };
+		DE5132711D522D52000B6D15 /* MMDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDocument.m; sourceTree = "<group>"; };
+		DE5132721D522D52000B6D15 /* MMElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMElement.h; sourceTree = "<group>"; };
+		DE5132731D522D52000B6D15 /* MMElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMElement.m; sourceTree = "<group>"; };
+		DE5132741D522D52000B6D15 /* MMGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMGenerator.h; sourceTree = "<group>"; };
+		DE5132751D522D52000B6D15 /* MMGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMGenerator.m; sourceTree = "<group>"; };
+		DE5132761D522D52000B6D15 /* MMHTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHTMLParser.h; sourceTree = "<group>"; };
+		DE5132771D522D52000B6D15 /* MMHTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHTMLParser.m; sourceTree = "<group>"; };
+		DE5132781D522D52000B6D15 /* MMMarkdown-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMMarkdown-Prefix.pch"; sourceTree = "<group>"; };
+		DE5132791D522D52000B6D15 /* MMMarkdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMarkdown.h; sourceTree = "<group>"; };
+		DE51327A1D522D52000B6D15 /* MMMarkdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMarkdown.m; sourceTree = "<group>"; };
+		DE51327B1D522D52000B6D15 /* MMParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMParser.h; sourceTree = "<group>"; };
+		DE51327C1D522D52000B6D15 /* MMParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMParser.m; sourceTree = "<group>"; };
+		DE51327D1D522D52000B6D15 /* MMScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMScanner.h; sourceTree = "<group>"; };
+		DE51327E1D522D52000B6D15 /* MMScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMScanner.m; sourceTree = "<group>"; };
+		DE51327F1D522D52000B6D15 /* MMSpanParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSpanParser.h; sourceTree = "<group>"; };
+		DE5132801D522D52000B6D15 /* MMSpanParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSpanParser.m; sourceTree = "<group>"; };
+		DE5132891D5230F2000B6D15 /* gios-Bridging-Header.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "gios-Bridging-Header.mm"; sourceTree = "<group>"; };
+		DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SartViewController.swift; sourceTree = "<group>"; };
+		DEF45B201D50D229005AF78F /* RepositoryDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +97,49 @@
 		DE14FF351D50B49A0012E0DD /* gios */ = {
 			isa = PBXGroup;
 			children = (
+				DE14FF441D50B49A0012E0DD /* Info.plist */,
 				DE14FF361D50B49A0012E0DD /* AppDelegate.swift */,
-				DE14FF381D50B49A0012E0DD /* FirstViewController.swift */,
-				DE14FF3A1D50B49A0012E0DD /* SecondViewController.swift */,
-				DE14FF3C1D50B49A0012E0DD /* Main.storyboard */,
+				DE34F89D1D532110007F5546 /* FavoritesCellView.swift */,
+				DE34F89B1D531155007F5546 /* FavoritesList.swift */,
+				DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */,
+				DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */,
+				DE5132631D51EF7F000B6D15 /* RepositoryCellView.swift */,
+				DEF45B201D50D229005AF78F /* RepositoryDescription.swift */,
+				DE5132671D520D09000B6D15 /* RepositoryViewController.swift */,
+				DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */,
 				DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */,
 				DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */,
-				DE14FF441D50B49A0012E0DD /* Info.plist */,
+				DE14FF3C1D50B49A0012E0DD /* Main.storyboard */,
+				DE51326B1D5224B7000B6D15 /* Markdown */,
 			);
 			path = gios;
+			sourceTree = "<group>";
+		};
+		DE51326B1D5224B7000B6D15 /* Markdown */ = {
+			isa = PBXGroup;
+			children = (
+				DE51326E1D522D52000B6D15 /* gios-Bridging-Header.h */,
+				DE5132891D5230F2000B6D15 /* gios-Bridging-Header.mm */,
+				DE51326F1D522D52000B6D15 /* MMDocument_Private.h */,
+				DE5132701D522D52000B6D15 /* MMDocument.h */,
+				DE5132711D522D52000B6D15 /* MMDocument.m */,
+				DE5132721D522D52000B6D15 /* MMElement.h */,
+				DE5132731D522D52000B6D15 /* MMElement.m */,
+				DE5132741D522D52000B6D15 /* MMGenerator.h */,
+				DE5132751D522D52000B6D15 /* MMGenerator.m */,
+				DE5132761D522D52000B6D15 /* MMHTMLParser.h */,
+				DE5132771D522D52000B6D15 /* MMHTMLParser.m */,
+				DE5132781D522D52000B6D15 /* MMMarkdown-Prefix.pch */,
+				DE5132791D522D52000B6D15 /* MMMarkdown.h */,
+				DE51327A1D522D52000B6D15 /* MMMarkdown.m */,
+				DE51327B1D522D52000B6D15 /* MMParser.h */,
+				DE51327C1D522D52000B6D15 /* MMParser.m */,
+				DE51327D1D522D52000B6D15 /* MMScanner.h */,
+				DE51327E1D522D52000B6D15 /* MMScanner.m */,
+				DE51327F1D522D52000B6D15 /* MMSpanParser.h */,
+				DE5132801D522D52000B6D15 /* MMSpanParser.m */,
+			);
+			path = Markdown;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +213,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE14FF3B1D50B49A0012E0DD /* SecondViewController.swift in Sources */,
+				DE5132851D522D52000B6D15 /* MMMarkdown.m in Sources */,
+				DE34F89C1D531155007F5546 /* FavoritesList.swift in Sources */,
+				DE5132811D522D52000B6D15 /* MMDocument.m in Sources */,
+				DE5132831D522D52000B6D15 /* MMGenerator.m in Sources */,
+				DE34F89E1D532110007F5546 /* FavoritesCellView.swift in Sources */,
+				DE5132641D51EF7F000B6D15 /* RepositoryCellView.swift in Sources */,
+				DEF45B1F1D50CFD6005AF78F /* SartViewController.swift in Sources */,
+				DEF45B1B1D50CACF005AF78F /* RepositoriesViewController.swift in Sources */,
+				DE5132871D522D52000B6D15 /* MMScanner.m in Sources */,
+				DE5132681D520D09000B6D15 /* RepositoryViewController.swift in Sources */,
+				DE5132821D522D52000B6D15 /* MMElement.m in Sources */,
+				DEF45B1D1D50CAE7005AF78F /* FavoritesViewController.swift in Sources */,
+				DE51328A1D5230F2000B6D15 /* gios-Bridging-Header.mm in Sources */,
+				DEF45B211D50D229005AF78F /* RepositoryDescription.swift in Sources */,
+				DE5132881D522D52000B6D15 /* MMSpanParser.m in Sources */,
+				DE5132841D522D52000B6D15 /* MMHTMLParser.m in Sources */,
+				DE5132861D522D52000B6D15 /* MMParser.m in Sources */,
 				DE14FF371D50B49A0012E0DD /* AppDelegate.swift in Sources */,
-				DE14FF391D50B49A0012E0DD /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,10 +343,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = gios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "yv-test.gios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "gios/Markdown/gios-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -264,10 +357,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = gios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "yv-test.gios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "gios/Markdown/gios-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -290,6 +385,7 @@
 				DE14FF491D50B49A0012E0DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
