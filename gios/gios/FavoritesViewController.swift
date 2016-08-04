@@ -9,6 +9,12 @@
 import UIKit
 
 class FavoritesViewController: UITableViewController {
+    
+    // MARK: - properties
+    
+    private var favorites = FavoritesList.sharedFavoritesList
+    
+    // MARK: - UIView API
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,22 +27,45 @@ class FavoritesViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    // MARK: - UITableViewController API
+    
+    // MARK: datasource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FavoritesList.sharedFavoritesList.favorites.count
+        return favorites.list.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier( "FavoriteCell", forIndexPath: indexPath ) as! FavoritesCellView
         
-        cell.name.text = FavoritesList.sharedFavoritesList.favorites[indexPath.row].name        
+        cell.name.text = favorites.list[indexPath.row].name
         
         return cell
+    }
+    
+    // MARK: editing
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            // Delete the row from the data source
+            let favorite = favorites.list[indexPath.row]
+            favorites.removeFavorite(favorite.id)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        }
+    }
+    
+    override func tableView(   tableView: UITableView,
+        moveRowAtIndexPath sourceIndexPath: NSIndexPath,
+        toIndexPath destinationIndexPath: NSIndexPath) {
+            
+            favorites.moveItem( fromIndex: sourceIndexPath.row,
+                toIndex: destinationIndexPath.row)
     }
 
     // MARK: - Navigation
@@ -48,32 +77,8 @@ class FavoritesViewController: UITableViewController {
         
         let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
         if let repositoryView = segue.destinationViewController as? RepositoryViewController {
-            repositoryView.repository = FavoritesList.sharedFavoritesList.favorites[indexPath.row]
+            repositoryView.repository = favorites.list[indexPath.row]
         }
     }
     
-    // MARK: - EDITING
-    
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            // Delete the row from the data source
-            let favorite = FavoritesList.sharedFavoritesList.favorites[indexPath.row]
-            FavoritesList.sharedFavoritesList.removeFavorite(favorite.id)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-        }
-    }
-    
-    override func tableView(   tableView: UITableView,
-        moveRowAtIndexPath sourceIndexPath: NSIndexPath,
-        toIndexPath destinationIndexPath: NSIndexPath) {
-            
-            FavoritesList.sharedFavoritesList.moveItem( fromIndex: sourceIndexPath.row,
-                toIndex: destinationIndexPath.row)
-    }
-
 }

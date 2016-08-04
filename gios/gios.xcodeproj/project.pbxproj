@@ -97,20 +97,20 @@
 		DE14FF351D50B49A0012E0DD /* gios */ = {
 			isa = PBXGroup;
 			children = (
-				DE34F89D1D532110007F5546 /* FavoritesCellView.swift */,
+				DE14FF441D50B49A0012E0DD /* Info.plist */,
 				DE14FF361D50B49A0012E0DD /* AppDelegate.swift */,
-				DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */,
+				DE34F89D1D532110007F5546 /* FavoritesCellView.swift */,
 				DE34F89B1D531155007F5546 /* FavoritesList.swift */,
 				DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */,
-				DE14FF441D50B49A0012E0DD /* Info.plist */,
-				DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */,
-				DE14FF3C1D50B49A0012E0DD /* Main.storyboard */,
-				DE51326B1D5224B7000B6D15 /* Markdown */,
 				DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */,
 				DE5132631D51EF7F000B6D15 /* RepositoryCellView.swift */,
 				DEF45B201D50D229005AF78F /* RepositoryDescription.swift */,
 				DE5132671D520D09000B6D15 /* RepositoryViewController.swift */,
 				DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */,
+				DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */,
+				DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */,
+				DE14FF3C1D50B49A0012E0DD /* Main.storyboard */,
+				DE51326B1D5224B7000B6D15 /* Markdown */,
 			);
 			path = gios;
 			sourceTree = "<group>";
