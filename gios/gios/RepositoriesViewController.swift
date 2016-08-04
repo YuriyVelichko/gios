@@ -49,18 +49,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier( "RepositoryCell", forIndexPath: indexPath ) as! RepositoryCell
-        
-        let repo = repositories[ indexPath.row ]
-        
-        cell.name.text      = repo.name
-        cell.descr.text     = repo.descr
-        cell.date.text      = repo.date
-        
-        cell.language.text  = repo.language
-        cell.rating.text    = repo.rating
-        cell.forks.text     = repo.forks
-         
-        cell.favoriteImage.hidden = !favorites.isFavorite( repo.id )
+        cell.updateView( repositories[ indexPath.row ], favorites : favorites )
         
         return cell
     }
