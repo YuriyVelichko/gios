@@ -329,7 +329,7 @@
             </objects>
             <point key="canvasLocation" x="1506" y="-473"/>
         </scene>
-        <!--Repository View Controller-->
+        <!--Title-->
         <scene sceneID="xDc-3Z-duN">
             <objects>
                 <viewController id="gOa-AQ-nSS" customClass="RepositoryViewController" customModule="gios" customModuleProvider="target" sceneMemberID="viewController">
@@ -337,11 +337,11 @@
                         <viewControllerLayoutGuide type="top" id="cq5-Ux-yBV"/>
                         <viewControllerLayoutGuide type="bottom" id="oHw-v0-Ce5"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sZf-vx-rQd">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="sZf-vx-rQd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80N-zb-hFO">
+                            <webView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="80N-zb-hFO">
                                 <rect key="frame" x="20" y="72" width="560" height="433"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -372,9 +372,11 @@
                             <constraint firstItem="80N-zb-hFO" firstAttribute="top" secondItem="cq5-Ux-yBV" secondAttribute="bottom" constant="8" id="gJw-uG-acr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="RUS-jY-iSO"/>
                     <connections>
                         <outlet property="addButton" destination="h7i-pM-YME" id="udi-Z3-z6M"/>
                         <outlet property="loadingIndicator" destination="63V-sT-7bI" id="qtf-qT-2zD"/>
+                        <outlet property="navigationTitle" destination="RUS-jY-iSO" id="6Oh-Vp-9Bt"/>
                         <outlet property="webView" destination="80N-zb-hFO" id="Njm-Vu-dPZ"/>
                     </connections>
                 </viewController>

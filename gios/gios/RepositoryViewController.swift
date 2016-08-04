@@ -22,6 +22,7 @@ class RepositoryViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var navigationTitle: UINavigationItem!
     
     // MARK: - Actions
     
@@ -36,6 +37,7 @@ class RepositoryViewController: UIViewController {
         super.viewDidLoad()
         
         loadingIndicator.startAnimating()
+        navigationTitle.title = repository.name
         
         let addButton = UIBarButtonItem( barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showInBrowser")
         navigationItem.rightBarButtonItem = addButton
