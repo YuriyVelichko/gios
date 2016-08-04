@@ -86,6 +86,14 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
             }
         }
     }
+    
+    func searchBarSearchButtonClicked( theSearchBar : UISearchBar ) {
+        theSearchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidEndEditing( theSearchBar : UISearchBar ) {
+        theSearchBar.resignFirstResponder()
+    }
    
     // MARK: - Navigation
 
