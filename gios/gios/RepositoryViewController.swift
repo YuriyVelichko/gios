@@ -20,6 +20,7 @@ class RepositoryViewController: UIViewController {
     
     // MARK: otlets
     
+    @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var navigationTitle: UINavigationItem!
@@ -31,13 +32,25 @@ class RepositoryViewController: UIViewController {
     
     @IBAction func onAddToFavorites(sender: UIButton) {
         favorites.addFavorite( repository )
-        addButton.hidden = true
+        updateFavoritesButtons()
+    }
+    
+    @IBAction func onRemoveFromFavorites(sender: UIButton) {
+        favorites.removeFavorite( repository.id )
+        updateFavoritesButtons()
     }
     
     // MARK: - UIView API
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationTitle.title = repository.name
+        
+        let showButton = UIBarButtonItem( barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showInBrowser")
+        navigationItem.rightBarButtonItem = showButton
+        
+        loadingIndicator.startAnimating()
         
         // Tune WKWebView
         let preferences = WKPreferences()
@@ -53,11 +66,7 @@ class RepositoryViewController: UIViewController {
             webViewPanel.addSubview( theWebView )
         }
         
-        loadingIndicator.startAnimating()
-        navigationTitle.title = repository.name
-        
-        let addButton = UIBarButtonItem( barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showInBrowser")
-        navigationItem.rightBarButtonItem = addButton
+        updateFavoritesButtons()
         
         loadReadme()
     }
@@ -124,5 +133,11 @@ class RepositoryViewController: UIViewController {
         }
         
         task.resume()
+    }
+    
+    private func updateFavoritesButtons(){
+        let isFavorite = favorites.isFavorite( repository.id )
+        addButton.hidden = isFavorite
+        removeButton.hidden = !isFavorite
     }
 }

@@ -341,12 +341,20 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7i-pM-YME">
-                                <rect key="frame" x="244" y="513" width="112" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7i-pM-YME">
+                                <rect key="frame" x="243" y="513" width="115" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Add to Favorites"/>
+                                <state key="normal" title="Add To Favorites"/>
                                 <connections>
                                     <action selector="onAddToFavorites:" destination="gOa-AQ-nSS" eventType="touchUpInside" id="ftW-lO-Z9T"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2v2-k2-qfk">
+                                <rect key="frame" x="189" y="513" width="223" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Remove From Favorites"/>
+                                <connections>
+                                    <action selector="onRemoveFromFavorites:" destination="gOa-AQ-nSS" eventType="touchUpInside" id="Efz-MA-JUJ"/>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="63V-sT-7bI">
@@ -363,6 +371,8 @@
                             <constraint firstItem="oHw-v0-Ce5" firstAttribute="top" secondItem="h7i-pM-YME" secondAttribute="bottom" constant="8" id="LPZ-Ul-Ka7"/>
                             <constraint firstItem="63V-sT-7bI" firstAttribute="centerY" secondItem="sZf-vx-rQd" secondAttribute="centerY" id="OEh-WV-7DU"/>
                             <constraint firstItem="h7i-pM-YME" firstAttribute="centerX" secondItem="sZf-vx-rQd" secondAttribute="centerX" id="P1C-fs-QKy"/>
+                            <constraint firstItem="oHw-v0-Ce5" firstAttribute="top" secondItem="2v2-k2-qfk" secondAttribute="bottom" constant="8" id="U6h-DN-yh7"/>
+                            <constraint firstItem="2v2-k2-qfk" firstAttribute="centerX" secondItem="sZf-vx-rQd" secondAttribute="centerX" id="Wr9-UZ-F2Y"/>
                             <constraint firstItem="h7i-pM-YME" firstAttribute="top" secondItem="NVv-Vm-y69" secondAttribute="bottom" constant="8" id="XIh-kh-qMy"/>
                             <constraint firstAttribute="trailing" secondItem="NVv-Vm-y69" secondAttribute="trailing" id="cQo-jF-XVq"/>
                         </constraints>
@@ -372,6 +382,7 @@
                         <outlet property="addButton" destination="h7i-pM-YME" id="udi-Z3-z6M"/>
                         <outlet property="loadingIndicator" destination="63V-sT-7bI" id="qtf-qT-2zD"/>
                         <outlet property="navigationTitle" destination="RUS-jY-iSO" id="6Oh-Vp-9Bt"/>
+                        <outlet property="removeButton" destination="2v2-k2-qfk" id="MYg-Bw-xlV"/>
                         <outlet property="webViewPanel" destination="NVv-Vm-y69" id="ROV-Ub-15h"/>
                     </connections>
                 </viewController>
