@@ -10,14 +10,19 @@ import UIKit
 
 class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
 
-    var lastFilter      : String = ""
-    var repositories    : [RepositoryDescription] = []
+    // MARK: - properties
     
-    var indicator = UIActivityIndicatorView()
+    private var lastFilter      : String = ""
+    private var repositories    : [RepositoryDescription] = []
+    private var text            : String = ""
     
-    var text : String = ""
+    private let favorites = FavoritesList.sharedFavoritesList
+
+    // MARK: Views
     
-    let favorites = FavoritesList.sharedFavoritesList
+    private var indicator = UIActivityIndicatorView()
+    
+    // MARK: - UIView API
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +45,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier( "RepositoryCell", forIndexPath: indexPath ) as! RepositoryCellView
         
         let repo = repositories[ indexPath.row ]
@@ -58,10 +64,10 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // Upload data on scrol to bottom
         let lastElement = repositories.count - 1
         if indexPath.row == lastElement {
-            // handle your logic here to get more items, add it to dataSource and reload tableview
-            
             dispatch_async( dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) ) {
                 self.loadData( self.text )
             }
@@ -75,11 +81,15 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
         indicator.startAnimating()
         indicator.backgroundColor = UIColor.whiteColor()
         
+        // Do not perform searching for any change - wait a some time maybe user will input other text
+        
         text = searchText
         
         dispatch_after(
-            dispatch_time(DISPATCH_TIME_NOW, 300 * Int64( NSEC_PER_MSEC )),
+            dispatch_time(DISPATCH_TIME_NOW, 500 * Int64( NSEC_PER_MSEC )),
             dispatch_get_main_queue()) {
+                
+            // Run searching only if current reques is equal to initial reques for this task
             if self.text == searchText {
                 self.loadData( self.text )
             }
@@ -88,10 +98,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     
         let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
         if let repositoryView = segue.destinationViewController as? RepositoryViewController {
@@ -102,25 +109,24 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     
     // MARK: - Internal methods
     
-    func loadData( filter : String ){
-                
-        // The mutex is required here because this code can be invoked simultaneously. Need to prevent internal data from data race.
+    private func loadData( filter : String ){
         
-        // Page count is 1-based
-        let page = ( repositories.count / 100 ) + 1
-        let requestURL = NSURL( string: "https://api.github.com/search/repositories?q=\(filter)&sort=stars&order=desc&page=\(page)&per_page=100" )
+        // TODO:
+        // The mutex is required here because this code can be invoked simultaneously. 
+        // Need to prevent internal data from data race.
+        
+        // NOTE: Page count is 1-based
+        let pageNum = ( repositories.count / 100 ) + 1
+        let requestURL = NSURL( string: "https://api.github.com/search/repositories?q=\(filter)&sort=stars&order=desc&page=\(pageNum)&per_page=100" )
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(requestURL!) { (data, response, error) in
-    
-                    
+            
                 if self.lastFilter != filter {
                     self.repositories.removeAll()
                 }
                     
                 self.onDataRecieved(data)
-                    
-                self.lastFilter = filter;
-        
+                self.lastFilter = filter;        
         
                 dispatch_async(dispatch_get_main_queue()) {
                         self.indicator.stopAnimating()
