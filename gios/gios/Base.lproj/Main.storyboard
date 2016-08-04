@@ -85,8 +85,8 @@
                                 <animations/>
                                 <connections>
                                     <outlet property="favoriteIcon" destination="Wl0-bY-29q" id="cFS-Z1-Mio"/>
-                                    <outlet property="image" destination="Wl0-bY-29q" id="rLN-r9-4km"/>
                                     <outlet property="name" destination="K1S-JZ-ndu" id="Gpv-P8-qnf"/>
+                                    <segue destination="gOa-AQ-nSS" kind="show" id="XSt-pZ-kKY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -404,4 +404,7 @@
         <image name="repository" width="20" height="32"/>
         <image name="star" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="XSt-pZ-kKY"/>
+    </inferredMetricsTieBreakers>
 </document>

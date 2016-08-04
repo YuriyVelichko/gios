@@ -33,22 +33,24 @@ class FavoritesViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier( "FavoriteCell", forIndexPath: indexPath ) as! FavoritesCellView
         
-        // cell.name.text = FavoritesList.sharedFavoritesList.favorites[indexPath.row].name
-        
+        cell.name.text = FavoritesList.sharedFavoritesList.favorites[indexPath.row].name        
         
         return cell
     }
 
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
+        if let repositoryView = segue.destinationViewController as? RepositoryViewController {
+            repositoryView.repository = FavoritesList.sharedFavoritesList.favorites[indexPath.row]
+        }
     }
-    */
 
 }
