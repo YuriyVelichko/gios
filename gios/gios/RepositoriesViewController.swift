@@ -30,6 +30,8 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
         indicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 40, 40))
         indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         indicator.center = self.view.center
+        self.indicator.hidesWhenStopped = true
+        
         tableView.addSubview(indicator)
     }
     
@@ -144,7 +146,6 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
         
                 dispatch_async(dispatch_get_main_queue()) {
                         self.indicator.stopAnimating()
-                        self.indicator.hidesWhenStopped = true
                         self.tableView.reloadData()
                 }
             }
