@@ -12,7 +12,7 @@ class FavoritesViewController: UITableViewController {
     
     // MARK: - properties
     
-    private var favorites = FavoritesList.sharedFavoritesList
+    private var favorites = FavoritesManager.sharedFavoritesManager
     
     // MARK: - UIView API
 

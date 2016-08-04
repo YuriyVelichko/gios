@@ -16,7 +16,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     private var repositories    : [Repository] = []
     private var text            : String = ""
     
-    private let favorites = FavoritesList.sharedFavoritesList
+    private let favorites = FavoritesManager.sharedFavoritesManager
 
     // MARK: Views
     

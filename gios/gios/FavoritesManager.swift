@@ -6,11 +6,11 @@
 //  Copyright © 2016 Yuriy Velichko. All rights reserved.
 //
 
-class FavoritesList {
+class FavoritesManager {
     
     // MARK: - properties
     
-    static let sharedFavoritesList = FavoritesList()
+    static let sharedFavoritesManager = FavoritesManager()
     
     private(set) var list : [Repository] = []
     
@@ -18,7 +18,7 @@ class FavoritesList {
     
     init()
     {
-        if let data = NSData(contentsOfURL: FavoritesList.dataFileURL()) {
+        if let data = NSData(contentsOfURL: FavoritesManager.dataFileURL()) {
             if let object = NSKeyedUnarchiver.unarchiveObjectWithData( data ) as? [Repository] {
                 list = object
             }
@@ -65,7 +65,7 @@ class FavoritesList {
     
     private func saveFavorites() {
         let data = NSKeyedArchiver.archivedDataWithRootObject( list )
-        data.writeToURL( FavoritesList.dataFileURL(), atomically: true)
+        data.writeToURL( FavoritesManager.dataFileURL(), atomically: true)
     }
         
     private static func dataFileURL() -> NSURL {

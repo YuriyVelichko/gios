@@ -11,7 +11,7 @@
 		DE14FF3E1D50B49A0012E0DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF3C1D50B49A0012E0DD /* Main.storyboard */; };
 		DE14FF401D50B49A0012E0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */; };
 		DE14FF431D50B49A0012E0DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */; };
-		DE34F89C1D531155007F5546 /* FavoritesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE34F89B1D531155007F5546 /* FavoritesList.swift */; };
+		DE34F89C1D531155007F5546 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE34F89B1D531155007F5546 /* FavoritesManager.swift */; };
 		DE34F89E1D532110007F5546 /* FavoritesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE34F89D1D532110007F5546 /* FavoritesCellView.swift */; };
 		DE34F8A01D5368F8007F5546 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE34F89F1D5368F8007F5546 /* WebKit.framework */; };
 		DE5132641D51EF7F000B6D15 /* RepositoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5132631D51EF7F000B6D15 /* RepositoryCellView.swift */; };
@@ -37,7 +37,7 @@
 		DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE14FF421D50B49A0012E0DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE14FF441D50B49A0012E0DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE34F89B1D531155007F5546 /* FavoritesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesList.swift; sourceTree = "<group>"; };
+		DE34F89B1D531155007F5546 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		DE34F89D1D532110007F5546 /* FavoritesCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesCellView.swift; sourceTree = "<group>"; };
 		DE34F89F1D5368F8007F5546 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		DE5132631D51EF7F000B6D15 /* RepositoryCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryCellView.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 				DE14FF441D50B49A0012E0DD /* Info.plist */,
 				DE14FF361D50B49A0012E0DD /* AppDelegate.swift */,
 				DE34F89D1D532110007F5546 /* FavoritesCellView.swift */,
-				DE34F89B1D531155007F5546 /* FavoritesList.swift */,
+				DE34F89B1D531155007F5546 /* FavoritesManager.swift */,
 				DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */,
 				DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */,
 				DE5132631D51EF7F000B6D15 /* RepositoryCellView.swift */,
@@ -215,7 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE5132851D522D52000B6D15 /* MMMarkdown.m in Sources */,
-				DE34F89C1D531155007F5546 /* FavoritesList.swift in Sources */,
+				DE34F89C1D531155007F5546 /* FavoritesManager.swift in Sources */,
 				DE5132811D522D52000B6D15 /* MMDocument.m in Sources */,
 				DE5132831D522D52000B6D15 /* MMGenerator.m in Sources */,
 				DE34F89E1D532110007F5546 /* FavoritesCellView.swift in Sources */,

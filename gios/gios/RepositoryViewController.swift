@@ -14,7 +14,7 @@ class RepositoryViewController: UIViewController {
     
     // MARK: - properties
     
-    private let favorites = FavoritesList.sharedFavoritesList
+    private let favorites = FavoritesManager.sharedFavoritesManager
     
     var repository : Repository = Repository()
     
