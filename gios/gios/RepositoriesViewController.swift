@@ -27,6 +27,12 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.registerClass(RepositoryCell.self,
+            forCellReuseIdentifier: "RepositoryCell")
+        
+        let nib = UINib(nibName: "RepositoryCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "RepositoryCell")
+        
         indicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 40, 40))
         indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         indicator.center = self.view.center

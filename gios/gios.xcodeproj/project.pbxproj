@@ -14,6 +14,7 @@
 		DE34F89C1D531155007F5546 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE34F89B1D531155007F5546 /* FavoritesManager.swift */; };
 		DE34F89E1D532110007F5546 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE34F89D1D532110007F5546 /* FavoritesCell.swift */; };
 		DE34F8A01D5368F8007F5546 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE34F89F1D5368F8007F5546 /* WebKit.framework */; };
+		DE34F8A21D5386DE007F5546 /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE34F8A11D5386DE007F5546 /* RepositoryCell.xib */; };
 		DE5132641D51EF7F000B6D15 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5132631D51EF7F000B6D15 /* RepositoryCell.swift */; };
 		DE5132681D520D09000B6D15 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5132671D520D09000B6D15 /* RepositoryViewController.swift */; };
 		DE5132811D522D52000B6D15 /* MMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5132711D522D52000B6D15 /* MMDocument.m */; };
@@ -40,6 +41,7 @@
 		DE34F89B1D531155007F5546 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		DE34F89D1D532110007F5546 /* FavoritesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		DE34F89F1D5368F8007F5546 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		DE34F8A11D5386DE007F5546 /* RepositoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		DE5132631D51EF7F000B6D15 /* RepositoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		DE5132671D520D09000B6D15 /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		DE51326E1D522D52000B6D15 /* gios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gios-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */,
 				DE14FF3C1D50B49A0012E0DD /* Main.storyboard */,
 				DE51326B1D5224B7000B6D15 /* Markdown */,
+				DE34F8A11D5386DE007F5546 /* RepositoryCell.xib */,
 			);
 			path = gios;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				DE14FF431D50B49A0012E0DD /* LaunchScreen.storyboard in Resources */,
 				DE14FF401D50B49A0012E0DD /* Assets.xcassets in Resources */,
 				DE14FF3E1D50B49A0012E0DD /* Main.storyboard in Resources */,
+				DE34F8A21D5386DE007F5546 /* RepositoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
