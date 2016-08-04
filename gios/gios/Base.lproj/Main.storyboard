@@ -37,7 +37,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FavoriteCell" rowHeight="51" id="Mn9-lT-wQK" customClass="FavoritesCellView" customModule="gios" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FavoriteCell" rowHeight="51" id="Mn9-lT-wQK" customClass="FavoritesCell" customModule="gios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mn9-lT-wQK" id="Dwe-Pg-3Xt">
@@ -137,7 +137,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RepositoryCell" rowHeight="86" id="gkL-Fh-S5v" customClass="RepositoryCellView" customModule="gios" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RepositoryCell" rowHeight="86" id="gkL-Fh-S5v" customClass="RepositoryCell" customModule="gios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="136" width="600" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gkL-Fh-S5v" id="IvZ-qg-ja7">
@@ -416,6 +416,6 @@
         <image name="star" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="omb-eC-FYy"/>
+        <segue reference="XSt-pZ-kKY"/>
     </inferredMetricsTieBreakers>
 </document>

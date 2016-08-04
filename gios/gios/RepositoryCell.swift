@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoryCellView: UITableViewCell {
+class RepositoryCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var descr: UILabel!
