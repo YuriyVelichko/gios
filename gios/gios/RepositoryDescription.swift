@@ -10,21 +10,20 @@ import Foundation
 
 class RepositoryDescription : NSObject, NSCoding
 {
-    var id          : String! = ""
-    var name        : String! = ""
-    var descr       : String! = ""
-    var date        : String! = ""
+    var id          = ""
+    var name        = ""
+    var descr       = ""
+    var date        = ""
     
-    var language    : String! = ""
-    var rating      : String! = ""
-    var forks       : String! = ""
+    var language    = ""
+    var rating      = ""
+    var forks       = ""
     
-    var owner       : String! = ""
-    var repo        : String! = ""
-    var url         : String! = ""
+    var owner       = ""
+    var repo        = ""
+    var url         = ""
     
-    override init(){
-        
+    override init(){        
     }
     
     required convenience init(coder decoder: NSCoder) {
