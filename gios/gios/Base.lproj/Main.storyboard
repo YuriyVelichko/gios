@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -30,61 +29,23 @@
         <scene sceneID="HbM-It-dhx">
             <objects>
                 <tableViewController id="tPR-u7-dhj" customClass="FavoritesViewController" customModule="gios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" id="gZF-c7-td8">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" id="gZF-c7-td8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FavoriteCell" rowHeight="51" id="Mn9-lT-wQK" customClass="FavoritesCell" customModule="gios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="51"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="I0n-mk-Vyk" customClass="RepositoryCell" customModule="gios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mn9-lT-wQK" id="Dwe-Pg-3Xt">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="50"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I0n-mk-Vyk" id="lt3-kv-IcL">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="name" text="Repository Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1S-JZ-ndu">
-                                            <rect key="frame" x="8" y="14" width="511" height="23"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                            <color key="textColor" red="0.044741030709999997" green="0.47657315719999999" blue="0.73026423429999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="Wl0-bY-29q">
-                                            <rect key="frame" x="527" y="9" width="32" height="32"/>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="32" id="POZ-mK-tCU"/>
-                                                <constraint firstAttribute="width" constant="32" id="PbF-eF-MNV"/>
-                                                <constraint firstAttribute="width" constant="32" id="wzd-Ca-FnX"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="wzd-Ca-FnX"/>
-                                                </mask>
-                                            </variation>
-                                        </imageView>
-                                    </subviews>
                                     <animations/>
-                                    <constraints>
-                                        <constraint firstItem="Wl0-bY-29q" firstAttribute="trailing" secondItem="Dwe-Pg-3Xt" secondAttribute="trailingMargin" id="4iu-Mb-oXj"/>
-                                        <constraint firstItem="Wl0-bY-29q" firstAttribute="leading" secondItem="K1S-JZ-ndu" secondAttribute="trailing" constant="8" id="ALl-kF-Btt"/>
-                                        <constraint firstItem="K1S-JZ-ndu" firstAttribute="baseline" secondItem="Wl0-bY-29q" secondAttribute="baseline" id="OGD-Yp-FaY"/>
-                                        <constraint firstItem="K1S-JZ-ndu" firstAttribute="leading" secondItem="Dwe-Pg-3Xt" secondAttribute="leadingMargin" id="Td4-ql-ULj"/>
-                                        <constraint firstItem="K1S-JZ-ndu" firstAttribute="centerY" secondItem="Dwe-Pg-3Xt" secondAttribute="centerY" id="hTe-FN-qMm"/>
-                                        <constraint firstItem="Wl0-bY-29q" firstAttribute="centerY" secondItem="Dwe-Pg-3Xt" secondAttribute="centerY" id="w0n-fm-e2f"/>
-                                    </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="OGD-Yp-FaY"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <outlet property="favoriteIcon" destination="Wl0-bY-29q" id="cFS-Z1-Mio"/>
-                                    <outlet property="name" destination="K1S-JZ-ndu" id="Gpv-P8-qnf"/>
-                                    <segue destination="gOa-AQ-nSS" kind="show" id="XSt-pZ-kKY"/>
+                                    <segue destination="gOa-AQ-nSS" kind="show" identifier="showDetails" id="9bh-bD-84h"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -145,6 +106,9 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="gOa-AQ-nSS" kind="show" identifier="showDetails" id="zVM-r2-FeC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -247,6 +211,8 @@
     <resources>
         <image name="favorites" width="32" height="32"/>
         <image name="repository" width="20" height="32"/>
-        <image name="star" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9bh-bD-84h"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -20,6 +20,11 @@ class FavoritesViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        tableView.registerClass(RepositoryCell.self, forCellReuseIdentifier: "RepositoryCell")
+        
+        let nib = UINib(nibName: "RepositoryCell", bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: "RepositoryCell")
+        
         navigationItem.rightBarButtonItem = editButtonItem()
     }
     
@@ -30,6 +35,10 @@ class FavoritesViewController: UITableViewController {
     
     // MARK: - UITableViewController API
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showDetails", sender: tableView)
+    }
+    
     // MARK: datasource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,9 +47,9 @@ class FavoritesViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier( "FavoriteCell", forIndexPath: indexPath ) as! FavoritesCell
+        let cell = tableView.dequeueReusableCellWithIdentifier( "RepositoryCell", forIndexPath: indexPath ) as! RepositoryCell
         
-        cell.name.text = favorites.list[indexPath.row].name
+        cell.updateView(favorites.list[indexPath.row], favorites: favorites)
         
         return cell
     }
@@ -70,8 +79,8 @@ class FavoritesViewController: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
-        if let repositoryView = segue.destinationViewController as? RepositoryViewController {
+        if  let repositoryView = segue.destinationViewController as? RepositoryViewController,
+            let indexPath = tableView.indexPathForSelectedRow{
             repositoryView.repository = favorites.list[indexPath.row]
         }
     }    

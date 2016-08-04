@@ -27,8 +27,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.registerClass(RepositoryCell.self,
-            forCellReuseIdentifier: "RepositoryCell")
+        tableView.registerClass(RepositoryCell.self, forCellReuseIdentifier: "RepositoryCell")
         
         let nib = UINib(nibName: "RepositoryCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "RepositoryCell")
@@ -47,6 +46,10 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     }
 
     // MARK: - UITableViewDataSource
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showDetails", sender: tableView)
+    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositories.count
@@ -105,8 +108,8 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
-        let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
-        if let repositoryView = segue.destinationViewController as? RepositoryViewController {
+        if  let repositoryView = segue.destinationViewController as? RepositoryViewController,
+            let indexPath = tableView.indexPathForSelectedRow {
             repositoryView.repository = repositories[indexPath.row]
         }
     }
