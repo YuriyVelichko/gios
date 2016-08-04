@@ -12,8 +12,9 @@ class FavoritesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        navigationItem.rightBarButtonItem = editButtonItem()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -38,8 +39,6 @@ class FavoritesViewController: UITableViewController {
         return cell
     }
 
-    
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -51,6 +50,30 @@ class FavoritesViewController: UITableViewController {
         if let repositoryView = segue.destinationViewController as? RepositoryViewController {
             repositoryView.repository = FavoritesList.sharedFavoritesList.favorites[indexPath.row]
         }
+    }
+    
+    // MARK: - EDITING
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            // Delete the row from the data source
+            let favorite = FavoritesList.sharedFavoritesList.favorites[indexPath.row]
+            FavoritesList.sharedFavoritesList.removeFavorite(favorite.id)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        }
+    }
+    
+    override func tableView(   tableView: UITableView,
+        moveRowAtIndexPath sourceIndexPath: NSIndexPath,
+        toIndexPath destinationIndexPath: NSIndexPath) {
+            
+            FavoritesList.sharedFavoritesList.moveItem( fromIndex: sourceIndexPath.row,
+                toIndex: destinationIndexPath.row)
     }
 
 }

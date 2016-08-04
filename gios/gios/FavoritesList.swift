@@ -45,9 +45,11 @@ class FavoritesList {
     
     func removeFavorite(repoId: String) {
         
-        for index in 0...favorites.count {
+        for index in 0..<favorites.count {
             if favorites[index].id == repoId {
                 favorites.removeAtIndex( index )
+                saveFavorites()
+                return
             }
         }
     }
