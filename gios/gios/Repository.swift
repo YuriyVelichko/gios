@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RepositoryDescription : NSObject, NSCoding
+class Repository : NSObject, NSCoding
 {
     var id          = ""
     var name        = ""

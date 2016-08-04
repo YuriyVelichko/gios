@@ -16,7 +16,7 @@ class RepositoryViewController: UIViewController {
     
     private let favorites = FavoritesList.sharedFavoritesList
     
-    var repository : RepositoryDescription = RepositoryDescription()
+    var repository : Repository = Repository()
     
     // MARK: otlets
     

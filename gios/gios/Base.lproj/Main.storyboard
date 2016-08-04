@@ -349,8 +349,8 @@
                                     <action selector="onAddToFavorites:" destination="gOa-AQ-nSS" eventType="touchUpInside" id="ftW-lO-Z9T"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2v2-k2-qfk">
-                                <rect key="frame" x="189" y="513" width="223" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2v2-k2-qfk">
+                                <rect key="frame" x="220" y="513" width="160" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Remove From Favorites"/>
                                 <connections>
@@ -375,6 +375,7 @@
                             <constraint firstItem="2v2-k2-qfk" firstAttribute="centerX" secondItem="sZf-vx-rQd" secondAttribute="centerX" id="Wr9-UZ-F2Y"/>
                             <constraint firstItem="h7i-pM-YME" firstAttribute="top" secondItem="NVv-Vm-y69" secondAttribute="bottom" constant="8" id="XIh-kh-qMy"/>
                             <constraint firstAttribute="trailing" secondItem="NVv-Vm-y69" secondAttribute="trailing" id="cQo-jF-XVq"/>
+                            <constraint firstItem="2v2-k2-qfk" firstAttribute="top" secondItem="NVv-Vm-y69" secondAttribute="bottom" constant="8" id="kNh-SJ-P9s"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="RUS-jY-iSO"/>

@@ -13,7 +13,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - properties
     
     private var lastFilter      : String = ""
-    private var repositories    : [RepositoryDescription] = []
+    private var repositories    : [Repository] = []
     private var text            : String = ""
     
     private let favorites = FavoritesList.sharedFavoritesList
@@ -166,7 +166,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
             if let items = json["items"] as? [[String: AnyObject]] {
                 for repo in items {
         
-                    let descr = RepositoryDescription()
+                    let descr = Repository()
 
                     if let id = repo["id"] as? Int {
                         descr.id = String( format:"%d", id )

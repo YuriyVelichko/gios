@@ -12,14 +12,14 @@ class FavoritesList {
     
     static let sharedFavoritesList = FavoritesList()
     
-    private(set) var list : [RepositoryDescription] = []
+    private(set) var list : [Repository] = []
     
     // MARK: - initializer 
     
     init()
     {
         if let data = NSData(contentsOfURL: FavoritesList.dataFileURL()) {
-            if let object = NSKeyedUnarchiver.unarchiveObjectWithData( data ) as? [RepositoryDescription] {
+            if let object = NSKeyedUnarchiver.unarchiveObjectWithData( data ) as? [Repository] {
                 list = object
             }
         }
@@ -37,7 +37,7 @@ class FavoritesList {
         return false
     }
     
-    func addFavorite(repo: RepositoryDescription) {
+    func addFavorite(repo: Repository) {
         if !isFavorite(repo.id) {
             list.append(repo)
             saveFavorites()

@@ -27,7 +27,7 @@
 		DE51328A1D5230F2000B6D15 /* gios-Bridging-Header.mm in Sources */ = {isa = PBXBuildFile; fileRef = DE5132891D5230F2000B6D15 /* gios-Bridging-Header.mm */; };
 		DEF45B1B1D50CACF005AF78F /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */; };
 		DEF45B1D1D50CAE7005AF78F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */; };
-		DEF45B211D50D229005AF78F /* RepositoryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B201D50D229005AF78F /* RepositoryDescription.swift */; };
+		DEF45B211D50D229005AF78F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B201D50D229005AF78F /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +64,7 @@
 		DE5132891D5230F2000B6D15 /* gios-Bridging-Header.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "gios-Bridging-Header.mm"; sourceTree = "<group>"; };
 		DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		DEF45B201D50D229005AF78F /* RepositoryDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryDescription.swift; sourceTree = "<group>"; };
+		DEF45B201D50D229005AF78F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 				DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */,
 				DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */,
 				DE5132631D51EF7F000B6D15 /* RepositoryCellView.swift */,
-				DEF45B201D50D229005AF78F /* RepositoryDescription.swift */,
+				DEF45B201D50D229005AF78F /* Repository.swift */,
 				DE5132671D520D09000B6D15 /* RepositoryViewController.swift */,
 				DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */,
 				DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */,
@@ -226,7 +226,7 @@
 				DE5132821D522D52000B6D15 /* MMElement.m in Sources */,
 				DEF45B1D1D50CAE7005AF78F /* FavoritesViewController.swift in Sources */,
 				DE51328A1D5230F2000B6D15 /* gios-Bridging-Header.mm in Sources */,
-				DEF45B211D50D229005AF78F /* RepositoryDescription.swift in Sources */,
+				DEF45B211D50D229005AF78F /* Repository.swift in Sources */,
 				DE5132881D522D52000B6D15 /* MMSpanParser.m in Sources */,
 				DE5132841D522D52000B6D15 /* MMHTMLParser.m in Sources */,
 				DE5132861D522D52000B6D15 /* MMParser.m in Sources */,
