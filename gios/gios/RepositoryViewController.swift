@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 import Foundation
 
 class RepositoryViewController: UIViewController {
@@ -21,9 +22,11 @@ class RepositoryViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var navigationTitle: UINavigationItem!
+    @IBOutlet weak var webViewPanel: UIView!
     
+    var webView: WKWebView?
+
     // MARK: - Actions
     
     @IBAction func onAddToFavorites(sender: UIButton) {
@@ -35,6 +38,20 @@ class RepositoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Tune WKWebView
+        let preferences = WKPreferences()
+        preferences.javaScriptEnabled = true
+        let configuration = WKWebViewConfiguration()
+        configuration.preferences = preferences
+        
+        webView = WKWebView(frame: webViewPanel.bounds, configuration: configuration)
+        if let theWebView = webView {
+            
+            // Adapt size on rotation
+            theWebView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+            webViewPanel.addSubview( theWebView )
+        }
         
         loadingIndicator.startAnimating()
         navigationTitle.title = repository.name
@@ -86,8 +103,10 @@ class RepositoryViewController: UIViewController {
                             
                         dispatch_async( dispatch_get_main_queue() ) {
                             
-                            self.webView.loadHTMLString( html, baseURL: nil)                            
-                            self.webView.hidden = false
+                            if let theWebView = self.webView {
+                                theWebView.loadHTMLString( html, baseURL: nil)
+                            }
+                            
                             self.addButton.hidden = self.favorites.isFavorite( self.repository.id )
                             
                             self.loadingIndicator.stopAnimating()
