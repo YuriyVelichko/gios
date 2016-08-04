@@ -117,9 +117,23 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
         
         // NOTE: Page count is 1-based
         let pageNum = ( repositories.count / 100 ) + 1
-        let requestURL = NSURL( string: "https://api.github.com/search/repositories?q=\(filter)&sort=stars&order=desc&page=\(pageNum)&per_page=100" )
+        let urlString = "https://api.github.com/search/repositories?q=\(filter)&sort=stars&order=desc&page=\(pageNum)&per_page=100"
         
-        let task = NSURLSession.sharedSession().dataTaskWithURL(requestURL!) { (data, response, error) in
+        guard let requestURL = NSURL( string: urlString ) else {
+            self.showAlertInMainQueue( "Wrong URL for string \(urlString) ")
+            dispatch_async(dispatch_get_main_queue()) {
+                self.indicator.stopAnimating()
+            }
+            
+            return;
+        }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(requestURL) { (data, response, error) in
+            
+                if error != nil {
+                    self.showAlertInMainQueue( "\(error)" )
+                    return
+                }
             
                 if self.lastFilter != filter {
                     self.repositories.removeAll()
@@ -141,7 +155,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     func onDataRecieved( data: NSData! ) {
                         
         guard let data = data else {
-            NSLog ("handleTwitterData() received no data")
+            self.showAlertInMainQueue( "Request result is empty" )
             return
         }
                         
@@ -201,7 +215,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
             }
         }
         catch let error as NSError {
-            NSLog ("JSON error: \(error)")
+            self.showAlertInMainQueue("JSON error: \(error)" )
         }
     }
 }

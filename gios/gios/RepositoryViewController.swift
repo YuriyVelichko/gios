@@ -63,7 +63,7 @@ class RepositoryViewController: UIViewController {
             // DOWNLOAD CONTENT
             
             guard let data = data else {
-                NSLog ("handleTwitterData() received no data")
+                self.showAlertInMainQueue("Readme file is empty")
                 return
             }
                             
@@ -72,20 +72,23 @@ class RepositoryViewController: UIViewController {
                 let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions([]))
                 if let url = json["download_url"] as? String{
                     
-                        let dataURL = NSURL( string: url )
-                        let dataTask = NSURLSession.sharedSession().dataTaskWithURL(dataURL!) { (data, response, error) in
-                                    
-                            let dataString  = String(data: data!, encoding: NSUTF8StringEncoding)
-                            let markdown    = MarkdownBridge()
-                            let html        = markdown.convertToHTML( dataString )
-                                
-                            dispatch_async( dispatch_get_main_queue() ) {
-                                
-                                self.webView.loadHTMLString( html, baseURL: nil)                            
-                                self.webView.hidden = false
-                                self.addButton.hidden = self.favorites.isFavorite( self.repository.id )
-                                
-                                self.loadingIndicator.stopAnimating()
+                    guard let dataURL = NSURL(string:url) else {
+                        self.showAlertInMainQueue("Invalid URL for string \(url)")
+                        return
+                    }
+                    
+                    let dataTask = NSURLSession.sharedSession().dataTaskWithURL(dataURL) { (data, response, error) in
+                        let dataString  = String(data: data!, encoding: NSUTF8StringEncoding)
+                        let markdown    = MarkdownBridge()
+                        let html        = markdown.convertToHTML( dataString )
+                            
+                        dispatch_async( dispatch_get_main_queue() ) {
+                            
+                            self.webView.loadHTMLString( html, baseURL: nil)                            
+                            self.webView.hidden = false
+                            self.addButton.hidden = self.favorites.isFavorite( self.repository.id )
+                            
+                            self.loadingIndicator.stopAnimating()
                         }
                     }
                     
@@ -93,7 +96,9 @@ class RepositoryViewController: UIViewController {
                 }
             }
             catch let error as NSError {
-                NSLog ("JSON error: \(error)")
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.showAlertInMainQueue("JSON error: \(error)" )
+                }
             }
         }
         
