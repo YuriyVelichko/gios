@@ -10,6 +10,7 @@ import Foundation
 
 struct RepositoryDescription
 {
+    var id          : String! = ""
     var name        : String! = ""
     var descr       : String! = ""
     var date        : String! = ""
@@ -21,6 +22,4 @@ struct RepositoryDescription
     var owner       : String! = ""
     var repo        : String! = ""
     var url         : String! = ""
-    
-    
 }

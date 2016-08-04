@@ -266,6 +266,7 @@
                                 <connections>
                                     <outlet property="date" destination="jPB-PY-Dr7" id="Xsk-jM-QgG"/>
                                     <outlet property="descr" destination="tQy-Nf-FMo" id="ey3-n6-c6B"/>
+                                    <outlet property="favoriteImage" destination="ObA-b3-ZrV" id="wTw-s1-YqI"/>
                                     <outlet property="forks" destination="pJY-Qb-N0o" id="TVU-fP-hiW"/>
                                     <outlet property="language" destination="opY-0O-pMq" id="YJa-pr-AG1"/>
                                     <outlet property="name" destination="4ny-eS-Ap2" id="D2k-5V-h28"/>

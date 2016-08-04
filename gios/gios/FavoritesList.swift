@@ -32,6 +32,10 @@ class FavoritesList {
         }
     }
     
+    func isFavorite(repoId: String) -> Bool {
+        return favorites.contains( repoId )
+    }    
+    
     func removeFavorite(repoId: String) {
         if let index = favorites.indexOf(repoId) {
             favorites.removeAtIndex(index)

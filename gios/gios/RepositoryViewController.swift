@@ -15,10 +15,9 @@ class RepositoryViewController: UIViewController {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var webView: UIWebView!
     
+    var repository : RepositoryDescription = RepositoryDescription()
     
-    var owner   : String! = ""
-    var repo    : String! = ""
-    var url     : String! = ""
+    let favorites = FavoritesList.sharedFavoritesList
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +31,12 @@ class RepositoryViewController: UIViewController {
     }
 
     @IBAction func onAddToFavorites(sender: UIButton) {
-        
+        favorites.addFavorite( repository.id )
+        addButton.hidden = true
     }
     
     func showInBrowser() {
-        let urlToShow = NSURL( string: url )!
+        let urlToShow = NSURL( string: repository.url )!
         UIApplication.sharedApplication().openURL( urlToShow )
     }
     
@@ -44,7 +44,7 @@ class RepositoryViewController: UIViewController {
         
         // GET INFO        
         
-        let requestURL = NSURL( string: "https://api.github.com/repos/\(owner)/\(repo)/readme" )
+        let requestURL = NSURL( string: "https://api.github.com/repos/\(repository.owner)/\(repository.repo)/readme" )
         let task = NSURLSession.sharedSession().dataTaskWithURL(requestURL!) { (data, response, error) in
         
             //DOWNLOAD CONTENT
@@ -72,6 +72,9 @@ class RepositoryViewController: UIViewController {
                             
                             self.webView.loadHTMLString( html, baseURL: nil)                            
                             self.webView.hidden = false
+                            self.addButton.hidden = self.favorites.isFavorite( self.repository.id )
+                            
+                            self.loadingIndicator.stopAnimating()
                         }
                     }
                     
@@ -81,9 +84,6 @@ class RepositoryViewController: UIViewController {
             catch let error as NSError {
                 NSLog ("JSON error: \(error)")
             }
-
-        
-        
         }
         
         task.resume()

@@ -16,8 +16,8 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     var indicator = UIActivityIndicatorView()
     
     var text : String = ""
-
-
+    
+    let favorites = FavoritesList.sharedFavoritesList
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,11 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
         indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         indicator.center = self.view.center
         tableView.addSubview(indicator)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
     // MARK: - UITableViewDataSource
@@ -37,13 +42,17 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier( "RepositoryCell", forIndexPath: indexPath ) as! RepositoryCellView
         
-        cell.name.text      = repositories[ indexPath.row ].name
-        cell.descr.text     = repositories[ indexPath.row ].descr
-        cell.date.text      = repositories[ indexPath.row ].date
+        let repo = repositories[ indexPath.row ]
         
-        cell.language.text  = repositories[ indexPath.row ].language
-        cell.rating.text    = repositories[ indexPath.row ].rating
-        cell.forks.text     = repositories[ indexPath.row ].forks
+        cell.name.text      = repo.name
+        cell.descr.text     = repo.descr
+        cell.date.text      = repo.date
+        
+        cell.language.text  = repo.language
+        cell.rating.text    = repo.rating
+        cell.forks.text     = repo.forks
+         
+        cell.favoriteImage.hidden = !favorites.isFavorite( repo.id )
         
         return cell
     }
@@ -86,12 +95,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     
         let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
         if let repositoryView = segue.destinationViewController as? RepositoryViewController {
-
-            let info = repositories[indexPath.row]
-        
-            repositoryView.repo     = info.repo
-            repositoryView.owner    = info.owner
-            repositoryView.url      = info.url
+            repositoryView.repository = repositories[indexPath.row]
         }
     }
     
@@ -143,6 +147,10 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
         
                     var descr = RepositoryDescription()
 
+                    if let id = repo["id"] as? Int {
+                        descr.id = String( format:"%d", id )
+                    }
+                    
                     if let name = repo["full_name"] as? String {
                         descr.name = name
                     }
