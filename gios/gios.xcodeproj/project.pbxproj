@@ -26,7 +26,6 @@
 		DE51328A1D5230F2000B6D15 /* gios-Bridging-Header.mm in Sources */ = {isa = PBXBuildFile; fileRef = DE5132891D5230F2000B6D15 /* gios-Bridging-Header.mm */; };
 		DEF45B1B1D50CACF005AF78F /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */; };
 		DEF45B1D1D50CAE7005AF78F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */; };
-		DEF45B1F1D50CFD6005AF78F /* SartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */; };
 		DEF45B211D50D229005AF78F /* RepositoryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF45B201D50D229005AF78F /* RepositoryDescription.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +62,6 @@
 		DE5132891D5230F2000B6D15 /* gios-Bridging-Header.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "gios-Bridging-Header.mm"; sourceTree = "<group>"; };
 		DEF45B1A1D50CACF005AF78F /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		DEF45B1C1D50CAE7005AF78F /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SartViewController.swift; sourceTree = "<group>"; };
 		DEF45B201D50D229005AF78F /* RepositoryDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +104,6 @@
 				DE5132631D51EF7F000B6D15 /* RepositoryCellView.swift */,
 				DEF45B201D50D229005AF78F /* RepositoryDescription.swift */,
 				DE5132671D520D09000B6D15 /* RepositoryViewController.swift */,
-				DEF45B1E1D50CFD6005AF78F /* SartViewController.swift */,
 				DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */,
 				DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */,
 				DE14FF3C1D50B49A0012E0DD /* Main.storyboard */,
@@ -219,7 +216,6 @@
 				DE5132831D522D52000B6D15 /* MMGenerator.m in Sources */,
 				DE34F89E1D532110007F5546 /* FavoritesCellView.swift in Sources */,
 				DE5132641D51EF7F000B6D15 /* RepositoryCellView.swift in Sources */,
-				DEF45B1F1D50CFD6005AF78F /* SartViewController.swift in Sources */,
 				DEF45B1B1D50CACF005AF78F /* RepositoriesViewController.swift in Sources */,
 				DE5132871D522D52000B6D15 /* MMScanner.m in Sources */,
 				DE5132681D520D09000B6D15 /* RepositoryViewController.swift in Sources */,
