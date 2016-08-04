@@ -14,7 +14,7 @@ class FavoritesList {
     
     private(set) var list : [RepositoryDescription] = []
     
-    // MARK: - c-tor
+    // MARK: - initializer 
     
     init()
     {
