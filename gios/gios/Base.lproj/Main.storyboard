@@ -169,11 +169,13 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-b3-ZrV">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-b3-ZrV">
                                             <rect key="frame" x="527" y="45" width="32" height="32"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="32" id="R9K-36-BUm"/>
+                                                <constraint firstAttribute="height" constant="32" id="ajq-l3-oHr"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="gfu-ZB-wtD"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="111" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJY-Qb-N0o">
@@ -352,7 +354,7 @@
                                     <action selector="onAddToFavorites:" destination="gOa-AQ-nSS" eventType="touchUpInside" id="ftW-lO-Z9T"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="63V-sT-7bI">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="63V-sT-7bI">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                                 <animations/>
                             </activityIndicatorView>
@@ -405,6 +407,6 @@
         <image name="star" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XSt-pZ-kKY"/>
+        <segue reference="omb-eC-FYy"/>
     </inferredMetricsTieBreakers>
 </document>
