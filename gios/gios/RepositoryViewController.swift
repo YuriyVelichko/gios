@@ -31,7 +31,7 @@ class RepositoryViewController: UIViewController {
     }
 
     @IBAction func onAddToFavorites(sender: UIButton) {
-        favorites.addFavorite( repository.id )
+        favorites.addFavorite( repository )
         addButton.hidden = true
     }
     

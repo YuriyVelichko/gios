@@ -145,7 +145,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
             if let items = json["items"] as? [[String: AnyObject]] {
                 for repo in items {
         
-                    var descr = RepositoryDescription()
+                    let descr = RepositoryDescription()
 
                     if let id = repo["id"] as? Int {
                         descr.id = String( format:"%d", id )
@@ -188,9 +188,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
                         if let url = repo["html_url"] as? String {
                             descr.url = url
                         }
-                    }
-
-        
+                    }        
         
                     repositories.append( descr )
                 }

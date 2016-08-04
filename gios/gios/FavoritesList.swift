@@ -13,40 +13,48 @@ class FavoritesList {
     
     static let sharedFavoritesList = FavoritesList()
     
-    private(set) var favorites:[String]
-    
-    private let keyFavorites : String  = "favorites"
+    private(set) var favorites : [RepositoryDescription] = []
     
     init()
     {
-        let defaults        = NSUserDefaults.standardUserDefaults()
-        let storedFavorites = defaults.objectForKey( keyFavorites ) as? [String]
-        
-        favorites = storedFavorites != nil ? storedFavorites! : []
+        if let data = NSData(contentsOfURL: FavoritesList.dataFileURL()) {
+            
+            if let f = NSKeyedUnarchiver.unarchiveObjectWithData( data ) {
+                favorites = f as! [RepositoryDescription]
+            }
+        }
     }
     
-    func addFavorite(repoId: String) {
-        if !favorites.contains(repoId) {
-            favorites.append(repoId)
+    func addFavorite(repo: RepositoryDescription) {
+        if !isFavorite(repo.id) {
+            favorites.append(repo)
             saveFavorites()
         }
     }
     
     func isFavorite(repoId: String) -> Bool {
-        return favorites.contains( repoId )
+        
+        for it in favorites {
+            if it.id == repoId {
+                return true
+            }
+        }
+        
+        return false
     }    
     
     func removeFavorite(repoId: String) {
-        if let index = favorites.indexOf(repoId) {
-            favorites.removeAtIndex(index)
-            saveFavorites()
+        
+        for index in 0...favorites.count {
+            if favorites[index].id == repoId {
+                favorites.removeAtIndex( index )
+            }
         }
     }
     
     private func saveFavorites() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(favorites, forKey: keyFavorites )
-        defaults.synchronize()
+        let data = NSKeyedArchiver.archivedDataWithRootObject( favorites )
+        data.writeToURL( FavoritesList.dataFileURL(), atomically: true)
     }
     
     func moveItem(fromIndex from: Int, toIndex to: Int) {
@@ -54,5 +62,10 @@ class FavoritesList {
         favorites.removeAtIndex(from)
         favorites.insert(item, atIndex: to)
         saveFavorites()
+    }
+    
+    static func dataFileURL() -> NSURL {
+        let urls = NSFileManager.defaultManager().URLsForDirectory( .DocumentDirectory, inDomains: .UserDomainMask)
+        return urls.first!.URLByAppendingPathComponent("favorites.arcive")
     }
 }

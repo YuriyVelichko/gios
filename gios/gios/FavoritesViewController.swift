@@ -15,11 +15,30 @@ class FavoritesViewController: UITableViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return FavoritesList.sharedFavoritesList.favorites.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier( "FavoriteCell", forIndexPath: indexPath ) as! FavoritesCellView
+        
+        // cell.name.text = FavoritesList.sharedFavoritesList.favorites[indexPath.row].name
+        
+        
+        return cell
+    }
+
     
 
     /*
