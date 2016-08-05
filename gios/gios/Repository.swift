@@ -59,10 +59,12 @@ class Repository : NSObject, NSCoding
         coder.encodeObject( url         , forKey: "url"     )
     }
     
-    init( data: AnyObject?)
+    init?( data: AnyObject?)
     {
+        super.init()
+        
         guard let json = data else {
-            return
+            return nil
         }
         
         if let id = json["id"] as? Int {
@@ -107,5 +109,26 @@ class Repository : NSObject, NSCoding
                 self.url = url
             }
         }
+    }
+}
+
+extension Repository {
+    
+    static func initWebserviceResource( url: NSURL ) -> Resource<[Repository]>
+    {
+        return Resource<[Repository]>(url: url, parseJSON: { json in
+        
+            var res : [Repository] = []
+            
+            if let items = json["items"] as? [[String: AnyObject]] {
+                for info in items {
+                    if let repo = Repository( data: info ) {
+                        res.append( repo )
+                    }
+                }
+            }
+            
+            return res;
+        } )
     }
 }

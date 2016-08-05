@@ -90,53 +90,32 @@ class RepositoryViewController: UIViewController {
             return
         }
         
-        let task = NSURLSession.sharedSession().dataTaskWithURL(requestURL) { (data, response, error) in
-        
-            // DOWNLOAD CONTENT
+        Webservice.load( RepositoryViewController.initWebserviceResourceMDURL( requestURL ) ){ url in
             
-            guard let data = data else {
-                self.showAlertInMainQueue("Readme file is empty")
+            guard let readmeURL = url else {
+                self.showAlertInMainQueue("Invalid URL for string \(requestURL)")
                 return
             }
-                            
-            do {
-                    
-                let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions([]))
-                if let url = json["download_url"] as? String{
-                    
-                    guard let dataURL = NSURL(string:url) else {
-                        self.showAlertInMainQueue("Invalid URL for string \(url)")
-                        return
-                    }
-                    
-                    let dataTask = NSURLSession.sharedSession().dataTaskWithURL(dataURL) { (data, response, error) in
-                        let dataString  = String(data: data!, encoding: NSUTF8StringEncoding)
-                        let markdown    = MarkdownBridge()
-                        let html        = markdown.convertToHTML( dataString )
-                            
-                        dispatch_async( dispatch_get_main_queue() ) {
-                            
-                            if let theWebView = self.webView {
-                                theWebView.loadHTMLString( html, baseURL: nil)
-                            }
-                            
-                            self.addButton.hidden = self.favorites.isFavorite( self.repository.id )
-                            
-                            self.loadingIndicator.stopAnimating()
-                        }
-                    }
-                    
-                    dataTask.resume()
+            
+            Webservice.load( RepositoryViewController.initWebserviceResourceMDData( readmeURL ) ) { html in
+            
+                guard let readmeHTML = html else {
+                    self.showAlertInMainQueue("Readme file is empty")
+                    return
                 }
-            }
-            catch let error as NSError {
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.showAlertInMainQueue("JSON error: \(error)" )
+
+                dispatch_async( dispatch_get_main_queue() ) {
+                    
+                    if let theWebView = self.webView {
+                        theWebView.loadHTMLString( readmeHTML, baseURL: nil)
+                    }
+                    
+                    self.addButton.hidden = self.favorites.isFavorite( self.repository.id )
+                    
+                    self.loadingIndicator.stopAnimating()
                 }
             }
         }
-        
-        task.resume()
     }
     
     private func updateFavoritesButtons(){
@@ -145,3 +124,32 @@ class RepositoryViewController: UIViewController {
         removeButton.hidden = !isFavorite
     }
 }
+
+extension RepositoryViewController {
+    
+    static func initWebserviceResourceMDData( url: NSURL ) -> Resource<String>
+    {
+        return Resource<String>(resourceURL: url, parse: { data in
+            
+            let dataString  = String(data: data, encoding: NSUTF8StringEncoding)
+            let markdown    = MarkdownBridge()
+            let html        = markdown.convertToHTML( dataString )
+            
+            return html;
+        } )
+    }
+    
+    static func initWebserviceResourceMDURL( url: NSURL ) -> Resource<NSURL>
+    {
+        return Resource<NSURL>(url: url, parseJSON: { json in
+            
+            if  let url     = json["download_url"] as? String,
+                let dataURL = NSURL(string:url) {
+                    return dataURL
+            }
+            
+            return nil;
+        } )
+    }
+}
+

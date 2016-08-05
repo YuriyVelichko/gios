@@ -70,9 +70,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
         // Upload data on scrol to bottom
         let lastElement = repositories.count - 1
         if indexPath.row == lastElement {
-            dispatch_async( dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) ) {
-                self.loadData( self.text )
-            }
+            self.loadData( self.text )
         }
     }
     
@@ -121,10 +119,6 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     
     private func loadData( filter : String ){
         
-        // TODO:
-        // The mutex is required here because this code can be invoked simultaneously. 
-        // Need to prevent internal data from data race.
-        
         // NOTE: Page count is 1-based
         let pageNum = ( repositories.count / 100 ) + 1
         let urlString = "https://api.github.com/search/repositories?q=\(filter)&sort=stars&order=desc&page=\(pageNum)&per_page=100"
@@ -138,49 +132,19 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
             return;
         }
         
-  /*      Webservice.load(){result in
-            print(result)
-        }*/
-        
-        NSURLSession.sharedSession().dataTaskWithURL(requestURL) { (data, response, error) in
+        Webservice.load( Repository.initWebserviceResource( requestURL ) ){result in
             
-            if error != nil {
-                self.showAlertInMainQueue( "\(error)" )
-                return
-            }
-        
-            if self.lastFilter != filter {
-                self.repositories.removeAll()
-            }
-                
-            self.onDataRecieved(data)
-            self.lastFilter = filter;        
-    
             dispatch_async(dispatch_get_main_queue()) {
-                    self.indicator.stopAnimating()
-                    self.tableView.reloadData()
-            }
-        }.resume()
-    }
-    
-    func onDataRecieved( data: NSData! ) {
-                        
-        guard let data = data else {
-            self.showAlertInMainQueue( "Request result is empty" )
-            return
-        }
-                        
-        do {
-                
-            let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions([]))
-            if let items = json["items"] as? [[String: AnyObject]] {
-                for info in items {
-                    repositories.append( Repository( data: info ) )
+                if self.lastFilter != filter {
+                    self.repositories.removeAll()
                 }
+                
+                self.repositories.appendContentsOf( result ?? [] )
+                self.lastFilter = filter;
+                
+                self.indicator.stopAnimating()
+                self.tableView.reloadData()
             }
-        }
-        catch let error as NSError {
-            self.showAlertInMainQueue("JSON error: \(error)" )
         }
     }
 }
