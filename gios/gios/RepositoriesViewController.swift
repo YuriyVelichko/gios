@@ -138,27 +138,29 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
             return;
         }
         
-        let task = NSURLSession.sharedSession().dataTaskWithURL(requestURL) { (data, response, error) in
-            
-                if error != nil {
-                    self.showAlertInMainQueue( "\(error)" )
-                    return
-                }
-            
-                if self.lastFilter != filter {
-                    self.repositories.removeAll()
-                }
-                    
-                self.onDataRecieved(data)
-                self.lastFilter = filter;        
+  /*      Webservice.load(){result in
+            print(result)
+        }*/
         
-                dispatch_async(dispatch_get_main_queue()) {
-                        self.indicator.stopAnimating()
-                        self.tableView.reloadData()
-                }
+        NSURLSession.sharedSession().dataTaskWithURL(requestURL) { (data, response, error) in
+            
+            if error != nil {
+                self.showAlertInMainQueue( "\(error)" )
+                return
             }
         
-        task.resume()
+            if self.lastFilter != filter {
+                self.repositories.removeAll()
+            }
+                
+            self.onDataRecieved(data)
+            self.lastFilter = filter;        
+    
+            dispatch_async(dispatch_get_main_queue()) {
+                    self.indicator.stopAnimating()
+                    self.tableView.reloadData()
+            }
+        }.resume()
     }
     
     func onDataRecieved( data: NSData! ) {
@@ -172,54 +174,8 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
                 
             let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions([]))
             if let items = json["items"] as? [[String: AnyObject]] {
-                for repo in items {
-        
-                    let descr = Repository()
-
-                    if let id = repo["id"] as? Int {
-                        descr.id = String( format:"%d", id )
-                    }
-                    
-                    if let name = repo["full_name"] as? String {
-                        descr.name = name
-                    }
-        
-                    if let repo_decr = repo["description"] as? String {
-                        descr.descr = repo_decr
-                    }
-                    
-                    if let date = repo["updated_at"] as? String {
-                        descr.date = date
-                    }
-                    
-                    if let language = repo["language"] as? String {
-                        descr.language = language
-                    }
-                    
-                    if let rating = repo["score"] as? Int {
-                        descr.rating = String( format:"%d", rating )
-                    }
-                    
-                    if let forks = repo["forks_count"] as? Int {
-                        descr.forks = String( format:"%d", forks )
-                    }
-        
-                    if let json_owner = repo["owner"] {
-        
-                        if let owner = json_owner["login"] as? String {
-                            descr.owner = owner
-                        }
-
-                        if let repo = repo["name"] as? String {
-                            descr.repo = repo
-                        }
-
-                        if let url = repo["html_url"] as? String {
-                            descr.url = url
-                        }
-                    }        
-        
-                    repositories.append( descr )
+                for info in items {
+                    repositories.append( Repository( data: info ) )
                 }
             }
         }

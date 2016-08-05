@@ -58,4 +58,54 @@ class Repository : NSObject, NSCoding
         coder.encodeObject( repo        , forKey: "repo"    )
         coder.encodeObject( url         , forKey: "url"     )
     }
+    
+    init( data: AnyObject?)
+    {
+        guard let json = data else {
+            return
+        }
+        
+        if let id = json["id"] as? Int {
+            self.id = String( format:"%d", id )
+        }
+        
+        if let name = json["full_name"] as? String {
+            self.name = name
+        }
+        
+        if let json_decr = json["description"] as? String {
+            self.descr = json_decr
+        }
+        
+        if let date = json["updated_at"] as? String {
+            self.date = date
+        }
+        
+        if let language = json["language"] as? String {
+            self.language = language
+        }
+        
+        if let rating = json["score"] as? Int {
+            self.rating = String( format:"%d", rating )
+        }
+        
+        if let forks = json["forks_count"] as? Int {
+            self.forks = String( format:"%d", forks )
+        }
+        
+        if let json_owner = json["owner"]! {
+            
+            if let owner = json_owner["login"] as? String {
+                self.owner = owner
+            }
+            
+            if let repo = json["name"] as? String {
+                self.repo = repo
+            }
+            
+            if let url = json["html_url"] as? String {
+                self.url = url
+            }
+        }
+    }
 }
