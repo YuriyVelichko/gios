@@ -25,6 +25,8 @@ class FavoritesViewController: UITableViewController {
         let nib = UINib(nibName: "RepositoryCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "RepositoryCell")
         
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
         navigationItem.rightBarButtonItem = editButtonItem()
     }
     

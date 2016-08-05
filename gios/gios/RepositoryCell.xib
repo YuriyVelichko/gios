@@ -157,20 +157,20 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="JL9-8E-P6f"/>
-                    <exclude reference="qab-1i-Kgt"/>
-                    <exclude reference="jcx-dF-tCF"/>
-                    <exclude reference="OBA-c5-Ehb"/>
-                    <exclude reference="OA8-sb-vJv"/>
                     <exclude reference="Jlj-wY-ozP"/>
+                    <exclude reference="OA8-sb-vJv"/>
+                    <exclude reference="OBA-c5-Ehb"/>
+                    <exclude reference="jcx-dF-tCF"/>
+                    <exclude reference="qab-1i-Kgt"/>
                     <exclude reference="0we-HY-cmN"/>
                     <exclude reference="RHd-VH-u78"/>
+                    <exclude reference="ZRp-Lr-AbC"/>
                     <exclude reference="dth-y4-NVF"/>
                     <exclude reference="iJf-7N-Qb2"/>
-                    <exclude reference="ZRp-Lr-AbC"/>
-                    <exclude reference="fWe-2p-u1n"/>
                     <exclude reference="2tA-0s-qxW"/>
-                    <exclude reference="XnO-oa-kDS"/>
                     <exclude reference="Fpj-Q3-DHn"/>
+                    <exclude reference="XnO-oa-kDS"/>
+                    <exclude reference="fWe-2p-u1n"/>
                 </mask>
             </variation>
             <connections>
