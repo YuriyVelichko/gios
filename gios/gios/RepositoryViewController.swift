@@ -42,15 +42,8 @@ class RepositoryViewController: UIViewController {
     
     // MARK: - UIView API
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationTitle.title = repository.name
-        
-        let showButton = UIBarButtonItem( barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showInBrowser")
-        navigationItem.rightBarButtonItem = showButton
-        
-        loadingIndicator.startAnimating()
+    override func loadView() {
+        super.loadView()
         
         // Tune WKWebView
         let preferences = WKPreferences()
@@ -65,6 +58,17 @@ class RepositoryViewController: UIViewController {
             theWebView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             webViewPanel.addSubview( theWebView )
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationTitle.title = repository.name
+        
+        let showButton = UIBarButtonItem( barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showInBrowser")
+        navigationItem.rightBarButtonItem = showButton
+        
+        loadingIndicator.startAnimating()        
         
         updateFavoritesButtons()
         
