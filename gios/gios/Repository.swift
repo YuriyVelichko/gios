@@ -13,11 +13,11 @@ class Repository : NSObject, NSCoding
     var id          = ""
     var name        = ""
     var descr       = ""
-    var date        = ""
+    var date        = NSDate()
     
     var language    = ""
-    var rating      = ""
-    var forks       = ""
+    var rating      : Float = 0.0
+    var forks       : Int = 0
     
     var owner       = ""
     var repo        = ""
@@ -32,11 +32,12 @@ class Repository : NSObject, NSCoding
         id          = decoder.decodeObjectForKey("id"       ) as! String
         name        = decoder.decodeObjectForKey("name"     ) as! String
         descr       = decoder.decodeObjectForKey("descr"    ) as! String
-        date        = decoder.decodeObjectForKey("date"     ) as! String
+        date        = decoder.decodeObjectForKey("date"     ) as! NSDate
         
         language    = decoder.decodeObjectForKey("language" ) as! String
-        rating      = decoder.decodeObjectForKey("rating"   ) as! String
-        forks       = decoder.decodeObjectForKey("forks"    ) as! String
+        
+        rating      = decoder.decodeFloatForKey("rating"    )
+        forks       = decoder.decodeIntegerForKey("forks"   )
         
         owner       = decoder.decodeObjectForKey("owner"    ) as! String
         repo        = decoder.decodeObjectForKey("repo"     ) as! String
@@ -51,8 +52,9 @@ class Repository : NSObject, NSCoding
         coder.encodeObject( date        , forKey: "date"    )
         
         coder.encodeObject( language    , forKey: "language")
-        coder.encodeObject( rating      , forKey: "rating"  )
-        coder.encodeObject( forks       , forKey: "forks"   )
+        
+        coder.encodeFloat   ( rating    , forKey: "rating"  )
+        coder.encodeInteger ( forks     , forKey: "forks"   )
         
         coder.encodeObject( owner       , forKey: "owner"   )
         coder.encodeObject( repo        , forKey: "repo"    )
@@ -79,7 +81,7 @@ class Repository : NSObject, NSCoding
             self.descr = json_decr
         }
         
-        if let date = json["updated_at"] as? String {
+        if let date = json["updated_at"] as? NSDate {
             self.date = date
         }
         
@@ -87,12 +89,12 @@ class Repository : NSObject, NSCoding
             self.language = language
         }
         
-        if let rating = json["score"] as? Int {
-            self.rating = String( format:"%d", rating )
+        if let rating = json["score"] as? Float {
+            self.rating = rating
         }
         
         if let forks = json["forks_count"] as? Int {
-            self.forks = String( format:"%d", forks )
+            self.forks = forks
         }
         
         if let json_owner = json["owner"]! {

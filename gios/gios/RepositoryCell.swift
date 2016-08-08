@@ -28,11 +28,15 @@ class RepositoryCell: UITableViewCell {
         
         name.text      = repository.name
         descr.text     = repository.descr
-        date.text      = repository.date
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-DD HH:MM"
+        
+        date.text      = dateFormatter.stringFromDate( repository.date )
         
         language.text  = repository.language
-        rating.text    = repository.rating
-        forks.text     = repository.forks
+        rating.text    = String( repository.rating )
+        forks.text     = String( repository.forks )
         
         favoriteImage.hidden = !favorites.isFavorite( repository.id )
     }
