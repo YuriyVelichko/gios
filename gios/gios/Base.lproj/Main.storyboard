@@ -35,7 +35,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="I0n-mk-Vyk" customClass="RepositoryCell" customModule="gios" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="favoriteCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="emptyCell" rowHeight="86" id="I0n-mk-Vyk" customClass="RepositoryCell" customModule="gios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I0n-mk-Vyk" id="lt3-kv-IcL">
@@ -97,7 +97,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RepositoryCell" selectionStyle="default" indentationWidth="10" id="SwR-xm-MMW" customClass="RepositoryCell" customModule="gios" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RepositoryCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="emptyCell" id="SwR-xm-MMW" customClass="RepositoryCell" customModule="gios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="136" width="600" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SwR-xm-MMW" id="sX5-Gu-z0N">
@@ -213,6 +213,6 @@
         <image name="repository" width="20" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zVM-r2-FeC"/>
+        <segue reference="9bh-bD-84h"/>
     </inferredMetricsTieBreakers>
 </document>
