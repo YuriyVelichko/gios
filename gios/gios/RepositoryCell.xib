@@ -61,7 +61,7 @@
                         <rect key="frame" x="529" y="8" width="30" height="21"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="cpo-KQ-vuO"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="cpo-KQ-vuO"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -80,7 +80,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="ChI-x2-ski"/>
                             <constraint firstAttribute="width" constant="30" id="axK-sx-gBZ"/>
-                            <constraint firstAttribute="width" constant="16" id="m6T-jf-mGj"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="m6T-jf-mGj"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

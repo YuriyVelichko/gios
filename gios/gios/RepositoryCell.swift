@@ -35,7 +35,7 @@ class RepositoryCell: UITableViewCell {
         date.text      = dateFormatter.stringFromDate( repository.date )
         
         language.text  = repository.language
-        rating.text    = String( repository.rating )
+        rating.text    = String( Int( repository.rating ) )
         forks.text     = String( repository.forks )
         
         favoriteImage.hidden = !favorites.isFavorite( repository.id )

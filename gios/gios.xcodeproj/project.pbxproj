@@ -101,7 +101,6 @@
 		DE14FF351D50B49A0012E0DD /* gios */ = {
 			isa = PBXGroup;
 			children = (
-				DEF2EDC81D5879E0004F40E0 /* Main.storyboard */,
 				DE14FF441D50B49A0012E0DD /* Info.plist */,
 				DE14FF361D50B49A0012E0DD /* AppDelegate.swift */,
 				DE34F89B1D531155007F5546 /* FavoritesManager.swift */,
@@ -110,11 +109,12 @@
 				DEF45B201D50D229005AF78F /* Repository.swift */,
 				DE5132631D51EF7F000B6D15 /* RepositoryCell.swift */,
 				DE5132671D520D09000B6D15 /* RepositoryViewController.swift */,
-				DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */,
-				DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */,
-				DE51326B1D5224B7000B6D15 /* Markdown */,
-				DE34F8A11D5386DE007F5546 /* RepositoryCell.xib */,
 				DE4549E01D54A1E500AE4A47 /* Webservice.swift */,
+				DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */,
+				DE34F8A11D5386DE007F5546 /* RepositoryCell.xib */,
+				DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */,
+				DEF2EDC81D5879E0004F40E0 /* Main.storyboard */,
+				DE51326B1D5224B7000B6D15 /* Markdown */,
 			);
 			path = gios;
 			sourceTree = "<group>";
