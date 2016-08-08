@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
+class RepositoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     // MARK: - properties
     
@@ -20,6 +20,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     
     private var scrollOffset   : CGFloat = 0.0
     
+    @IBOutlet weak var tableView: UITableView!
     // MARK: Views
     
     private var indicator = UIActivityIndicatorView()
@@ -58,15 +59,19 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
 
     // MARK: - UITableViewDataSource
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("showDetails", sender: tableView)
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 86.0
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositories.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier( "RepositoryCell", forIndexPath: indexPath ) as! RepositoryCell
         cell.updateView( repositories[ indexPath.row ], favorites : favorites )
@@ -74,7 +79,7 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         // Upload data on scrol to bottom
         let lastElement = repositories.count - 1
