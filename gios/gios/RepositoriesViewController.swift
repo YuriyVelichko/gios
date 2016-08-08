@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class RepositoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
@@ -20,10 +21,9 @@ class RepositoriesViewController: UIViewController, UITableViewDataSource, UITab
     
     private var scrollOffset   : CGFloat = 0.0
     
-    @IBOutlet weak var tableView: UITableView!
     // MARK: Views
     
-    private var indicator = UIActivityIndicatorView()
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - UIView API
     
@@ -36,13 +36,6 @@ class RepositoriesViewController: UIViewController, UITableViewDataSource, UITab
         tableView.registerNib(nib, forCellReuseIdentifier: "RepositoryCell")
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-        indicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 40, 40))
-        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-        indicator.center = self.view.center
-        self.indicator.hidesWhenStopped = true
-        
-        tableView.addSubview(indicator)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -92,16 +85,15 @@ class RepositoriesViewController: UIViewController, UITableViewDataSource, UITab
     
     func searchBar( searchBar: UISearchBar, textDidChange searchText: String) {
         
-        indicator.startAnimating()
-        indicator.backgroundColor = UIColor.whiteColor()
-        
         // Do not perform searching for any change - wait a some time maybe user will input other text
-        
         text = searchText
         
         dispatch_after(
             dispatch_time(DISPATCH_TIME_NOW, 500 * Int64( NSEC_PER_MSEC )),
             dispatch_get_main_queue()) {
+                
+            SVProgressHUD.setBackgroundColor( UIColor.grayColor() )
+            SVProgressHUD.showWithStatus("Fetching data...")
                 
             // Run searching only if current reques is equal to initial reques for this task
             if self.text == searchText {
@@ -140,7 +132,7 @@ class RepositoriesViewController: UIViewController, UITableViewDataSource, UITab
         guard let requestURL = NSURL( string: urlString ) else {
             self.showAlertInMainQueue( "Wrong URL for string \(urlString) ")
             dispatch_async(dispatch_get_main_queue()) {
-                self.indicator.stopAnimating()
+                SVProgressHUD.dismiss()
             }
             
             return;
@@ -156,7 +148,7 @@ class RepositoriesViewController: UIViewController, UITableViewDataSource, UITab
                 self.repositories.appendContentsOf( result ?? [] )
                 self.lastFilter = filter;
                 
-                self.indicator.stopAnimating()
+                SVProgressHUD.dismiss()
                 self.tableView.reloadData()
             }
         }

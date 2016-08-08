@@ -9,6 +9,8 @@
 import UIKit
 import WebKit
 import Foundation
+import SVProgressHUD
+
 
 class RepositoryViewController: UIViewController {
     
@@ -22,7 +24,6 @@ class RepositoryViewController: UIViewController {
     
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var navigationTitle: UINavigationItem!
     @IBOutlet weak var webViewPanel: UIView!
     
@@ -68,7 +69,8 @@ class RepositoryViewController: UIViewController {
         let showButton = UIBarButtonItem( barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showInBrowser")
         navigationItem.rightBarButtonItem = showButton
         
-        loadingIndicator.startAnimating()        
+        SVProgressHUD.setBackgroundColor( UIColor.grayColor() )
+        SVProgressHUD.showWithStatus("Fetching data...")
         
         updateFavoritesButtons()
         
@@ -112,7 +114,7 @@ class RepositoryViewController: UIViewController {
                     
                     self.addButton.hidden = self.favorites.isFavorite( self.repository.id )
                     
-                    self.loadingIndicator.stopAnimating()
+                    SVProgressHUD.dismiss()
                 }
             }
         }

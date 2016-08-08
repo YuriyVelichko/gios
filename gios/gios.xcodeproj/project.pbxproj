@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36C63DFA646291B8B3106D40 /* Pods_gios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C8609AAAC7C7E124CD9EC22 /* Pods_gios.framework */; };
 		DE14FF371D50B49A0012E0DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE14FF361D50B49A0012E0DD /* AppDelegate.swift */; };
 		DE14FF401D50B49A0012E0DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */; };
 		DE14FF431D50B49A0012E0DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE14FF411D50B49A0012E0DD /* LaunchScreen.storyboard */; };
@@ -32,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C8609AAAC7C7E124CD9EC22 /* Pods_gios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		930072343566C43C65F9D996 /* Pods-gios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gios.release.xcconfig"; path = "Pods/Target Support Files/Pods-gios/Pods-gios.release.xcconfig"; sourceTree = "<group>"; };
+		94588CF4CD25DEEF42F28A2E /* Pods-gios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gios/Pods-gios.debug.xcconfig"; sourceTree = "<group>"; };
 		DE14FF331D50B49A0012E0DD /* gios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE14FF361D50B49A0012E0DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE14FF3F1D50B49A0012E0DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,18 +79,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE34F8A01D5368F8007F5546 /* WebKit.framework in Frameworks */,
+				36C63DFA646291B8B3106D40 /* Pods_gios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06BF4921BD5B3D13634D67DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94588CF4CD25DEEF42F28A2E /* Pods-gios.debug.xcconfig */,
+				930072343566C43C65F9D996 /* Pods-gios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DE14FF2A1D50B4990012E0DD = {
 			isa = PBXGroup;
 			children = (
 				DE34F89F1D5368F8007F5546 /* WebKit.framework */,
 				DE14FF351D50B49A0012E0DD /* gios */,
 				DE14FF341D50B49A0012E0DD /* Products */,
+				06BF4921BD5B3D13634D67DA /* Pods */,
+				DF92F28A0161A664AE979349 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +162,14 @@
 			path = Markdown;
 			sourceTree = "<group>";
 		};
+		DF92F28A0161A664AE979349 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C8609AAAC7C7E124CD9EC22 /* Pods_gios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +177,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE14FF471D50B49A0012E0DD /* Build configuration list for PBXNativeTarget "gios" */;
 			buildPhases = (
+				6E0994A8DBD8AB14E071D3AA /* [CP] Check Pods Manifest.lock */,
 				DE14FF2F1D50B49A0012E0DD /* Sources */,
 				DE14FF301D50B49A0012E0DD /* Frameworks */,
 				DE14FF311D50B49A0012E0DD /* Resources */,
+				F4C9DCAB1A26CEB3FD655935 /* [CP] Embed Pods Frameworks */,
+				37379988A9B3D68CB6839F12 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,6 +239,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37379988A9B3D68CB6839F12 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gios/Pods-gios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E0994A8DBD8AB14E071D3AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F4C9DCAB1A26CEB3FD655935 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gios/Pods-gios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DE14FF2F1D50B49A0012E0DD /* Sources */ = {
@@ -345,6 +420,7 @@
 		};
 		DE14FF481D50B49A0012E0DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94588CF4CD25DEEF42F28A2E /* Pods-gios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -359,6 +435,7 @@
 		};
 		DE14FF491D50B49A0012E0DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 930072343566C43C65F9D996 /* Pods-gios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

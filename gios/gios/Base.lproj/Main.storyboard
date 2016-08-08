@@ -90,6 +90,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVv-Vm-y69">
+                                <rect key="frame" x="0.0" y="64" width="600" height="441"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7i-pM-YME">
                                 <rect key="frame" x="243" y="513" width="115" height="30"/>
                                 <animations/>
@@ -106,24 +111,13 @@
                                     <action selector="onRemoveFromFavorites:" destination="gOa-AQ-nSS" eventType="touchUpInside" id="Efz-MA-JUJ"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="63V-sT-7bI">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                                <animations/>
-                            </activityIndicatorView>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVv-Vm-y69">
-                                <rect key="frame" x="0.0" y="64" width="600" height="441"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="63V-sT-7bI" firstAttribute="centerX" secondItem="sZf-vx-rQd" secondAttribute="centerX" id="7NW-jl-27p"/>
                             <constraint firstItem="NVv-Vm-y69" firstAttribute="leading" secondItem="sZf-vx-rQd" secondAttribute="leading" id="B1I-kk-ukZ"/>
                             <constraint firstItem="NVv-Vm-y69" firstAttribute="top" secondItem="cq5-Ux-yBV" secondAttribute="bottom" id="EeT-Kw-xhD"/>
                             <constraint firstItem="oHw-v0-Ce5" firstAttribute="top" secondItem="h7i-pM-YME" secondAttribute="bottom" constant="8" id="LPZ-Ul-Ka7"/>
-                            <constraint firstItem="63V-sT-7bI" firstAttribute="centerY" secondItem="sZf-vx-rQd" secondAttribute="centerY" id="OEh-WV-7DU"/>
                             <constraint firstItem="h7i-pM-YME" firstAttribute="centerX" secondItem="sZf-vx-rQd" secondAttribute="centerX" id="P1C-fs-QKy"/>
                             <constraint firstItem="oHw-v0-Ce5" firstAttribute="top" secondItem="2v2-k2-qfk" secondAttribute="bottom" constant="8" id="U6h-DN-yh7"/>
                             <constraint firstItem="2v2-k2-qfk" firstAttribute="centerX" secondItem="sZf-vx-rQd" secondAttribute="centerX" id="Wr9-UZ-F2Y"/>
@@ -135,7 +129,6 @@
                     <navigationItem key="navigationItem" title="Title" id="RUS-jY-iSO"/>
                     <connections>
                         <outlet property="addButton" destination="h7i-pM-YME" id="udi-Z3-z6M"/>
-                        <outlet property="loadingIndicator" destination="63V-sT-7bI" id="qtf-qT-2zD"/>
                         <outlet property="navigationTitle" destination="RUS-jY-iSO" id="6Oh-Vp-9Bt"/>
                         <outlet property="removeButton" destination="2v2-k2-qfk" id="MYg-Bw-xlV"/>
                         <outlet property="webViewPanel" destination="NVv-Vm-y69" id="ROV-Ub-15h"/>
@@ -238,6 +231,6 @@
         <image name="repository" width="20" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cH7-9v-Hva"/>
+        <segue reference="9bh-bD-84h"/>
     </inferredMetricsTieBreakers>
 </document>
