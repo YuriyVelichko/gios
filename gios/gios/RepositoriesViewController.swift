@@ -17,7 +17,9 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     private var text            : String = ""
     
     private let favorites = FavoritesManager.sharedFavoritesManager
-
+    
+    private var scrollOffset   : CGFloat = 0.0
+    
     // MARK: Views
     
     private var indicator = UIActivityIndicatorView()
@@ -44,7 +46,14 @@ class RepositoriesViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         tableView.reloadData()
+        
+        tableView.setContentOffset( CGPointMake(0, scrollOffset), animated: false)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        scrollOffset = tableView.contentOffset.y
     }
 
     // MARK: - UITableViewDataSource
