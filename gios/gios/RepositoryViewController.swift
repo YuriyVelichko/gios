@@ -66,7 +66,7 @@ class RepositoryViewController: UIViewController {
         
         navigationTitle.title = repository.name
         
-        let showButton = UIBarButtonItem( barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "showInBrowser")
+        let showButton = UIBarButtonItem( barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: #selector(showInBrowser) )
         navigationItem.rightBarButtonItem = showButton
         
         SVProgressHUD.setBackgroundColor( UIColor.grayColor() )
